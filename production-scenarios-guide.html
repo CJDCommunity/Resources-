@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Production Scenario-Based Interview Guide</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --panel: #161925;
+    --panel-border: #262b3d;
+    --accent: #6ea8fe;
+    --accent-soft: #2a3550;
+    --text: #e6e9f0;
+    --muted: #9aa3b8;
+    --code-bg: #0b0d13;
+    --tag-approach: #3d7a5c;
+    --tag-example: #7a5c3d;
+    --tag-fix: #4a3d7a;
+    --tag-root: #7a3d4a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 40px 24px 100px; }
+  header { text-align: center; margin-bottom: 40px; }
+  header h1 {
+    font-size: 1.9rem;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #6ea8fe, #a68bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  header p { color: var(--muted); font-size: 0.95rem; }
+  .toc {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 36px;
+  }
+  .toc h2 { margin-top: 0; font-size: 1.1rem; color: var(--accent); }
+  .toc-section { margin-bottom: 14px; }
+  .toc-section h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 0 0 8px; }
+  .toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 24px; }
+  .toc li { font-size: 0.85rem; margin-bottom: 4px; break-inside: avoid; }
+  .toc a { color: var(--text); text-decoration: none; }
+  .toc a:hover { color: var(--accent); text-decoration: underline; }
+
+  .part-title {
+    font-size: 1.3rem;
+    margin: 48px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-soft);
+    color: var(--accent);
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 20px;
+    scroll-margin-top: 20px;
+  }
+  .qnum {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .question {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 14px;
+    color: #fff;
+  }
+  .block { margin-bottom: 12px; }
+  .label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .label.example { background: var(--tag-example); color: #ffe0b2; }
+  .label.approach { background: var(--tag-approach); color: #c8f7dc; }
+  .label.root { background: var(--tag-root); color: #ffd6de; }
+  .label.fix { background: var(--tag-fix); color: #ded6ff; }
+  .block p { margin: 4px 0; color: var(--text); font-size: 0.94rem; }
+  .block ul { margin: 4px 0; padding-left: 20px; }
+  .block li { font-size: 0.94rem; margin-bottom: 3px; }
+  code {
+    background: var(--code-bg);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: "SF Mono", Consolas, Monaco, monospace;
+    font-size: 0.85em;
+    color: #9ecbff;
+  }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    overflow-x: auto;
+    margin: 8px 0;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    color: #cfe3ff;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  footer { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 60px; }
+  a.backtotop { color: var(--accent); text-decoration: none; font-size: 0.78rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Production Scenario-Based Questions</h1>
+  <p>37 real-world debugging &amp; design scenarios &mdash; with examples, approach, root cause, and fix</p>
+</header>
+
+<div class="toc" id="top">
+  <h2>Contents</h2>
+  <div class="toc-section">
+    <h3>Part 1 &mdash; Core Production Debugging</h3>
+    <ol>
+      <li><a href="#q1">API latency after deployment</a></li>
+      <li><a href="#q2">DB connection pool exhaustion</a></li>
+      <li><a href="#q3">Works locally, slow in production</a></li>
+      <li><a href="#q4">Random 500 errors</a></li>
+      <li><a href="#q5">Memory leak / crash</a></li>
+      <li><a href="#q6">Downstream service cascading slowness</a></li>
+      <li><a href="#q7">Concurrent updates to same record</a></li>
+      <li><a href="#q8">Cache serving stale data</a></li>
+      <li><a href="#q9">Scheduled job runs multiple times</a></li>
+      <li><a href="#q10">Healthy app, but timeouts</a></li>
+      <li><a href="#q11">Slow API despite fast DB query</a></li>
+      <li><a href="#q12">Tracing one request across services</a></li>
+      <li><a href="#q13">Traffic increases 10x</a></li>
+      <li><a href="#q14">Staging works, prod fails</a></li>
+      <li><a href="#q15">Crashes only under heavy load</a></li>
+    </ol>
+  </div>
+  <div class="toc-section">
+    <h3>Part 2 &mdash; Spring Boot &amp; Microservices Design</h3>
+    <ol start="16">
+      <li><a href="#q16">Root-causing slowness under high traffic</a></li>
+      <li><a href="#q17">@Transactional partial save</a></li>
+      <li><a href="#q18">Timeout, retry, fallback for REST calls</a></li>
+      <li><a href="#q19">JWT valid but role changed</a></li>
+      <li><a href="#q20">N+1 query problem</a></li>
+      <li><a href="#q21">LazyInitializationException</a></li>
+      <li><a href="#q22">Duplicate message processing</a></li>
+      <li><a href="#q23">Event lost when consumer is down</a></li>
+      <li><a href="#q24">Ambiguous bean injection</a></li>
+      <li><a href="#q25">Securing Actuator endpoints</a></li>
+      <li><a href="#q26">Managing secrets safely</a></li>
+      <li><a href="#q27">Centralized auth across microservices</a></li>
+      <li><a href="#q28">Handling external API rate limits</a></li>
+      <li><a href="#q29">Caching frequently read master data</a></li>
+      <li><a href="#q30">Pagination and sorting for large results</a></li>
+      <li><a href="#q31">Managing config across environments</a></li>
+      <li><a href="#q32">File upload, validation, storage</a></li>
+      <li><a href="#q33">Files lost after redeployment</a></li>
+      <li><a href="#q34">Async email after registration</a></li>
+      <li><a href="#q35">CI/CD from code push to deployment</a></li>
+      <li><a href="#q36">Internationalization (i18n)</a></li>
+      <li><a href="#q37">When to choose WebFlux</a></li>
+    </ol>
+  </div>
+</div>
+
+<h2 class="part-title">Part 1 &mdash; Core Production Debugging Scenarios</h2>
+
+<div class="card" id="q1">
+  <span class="qnum">Q1</span>
+  <p class="question">API latency suddenly increases after deployment. What do you check first?</p>
+  <div class="block"><span class="label example">Example</span><p>You deploy v2.3 of an order service at 2 PM. By 2:15 PM, p95 latency jumps from 200ms to 2s.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Overlay the deployment marker on your APM latency graph &mdash; confirm the spike aligns with the deploy, not a coincidental traffic spike.</li>
+      <li>Diff the release (<code>git diff v2.2..v2.3</code>) for new DB queries, added synchronous external calls, or changed serialization logic.</li>
+      <li>Check DB slow query logs for anything new appearing post-deploy.</li>
+      <li>If unclear, roll back immediately to restore service, then investigate in a lower environment with production-like data volume.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label root">Root Cause</span><p>A new field on the response DTO triggered a lazy-loaded JPA relationship on every request &mdash; turning 1 query into 1+N queries.</p></div>
+  <div class="block"><span class="label fix">Fix</span><p>Use <code>@EntityGraph</code> or an explicit <code>JOIN FETCH</code> to eagerly load only what's needed, and add a regression test asserting query count for that endpoint.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q2">
+  <span class="qnum">Q2</span>
+  <p class="question">Database connection pool gets exhausted. What could be the reason?</p>
+  <div class="block"><span class="label example">Example</span><p>HikariCP pool size is 20. During a traffic burst you see <code>Connection is not available, request timed out after 30000ms</code>.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Check Hikari metrics: <code>active</code>, <code>idle</code>, <code>pending</code>. If <code>active</code> is pinned at max and <code>pending</code> grows, the pool is starved.</li>
+      <li>Take a thread dump and inspect threads <code>WAITING</code> on Hikari &mdash; are they stuck in a long query or waiting on an external call while holding a connection?</li>
+      <li>Look for connections opened outside try-with-resources, or a session never closed.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label root">Root Cause</span><p>A batch export endpoint held a DB connection open for the entire duration of streaming a large CSV to the client &mdash; concurrent exports drained the pool fast.</p></div>
+  <div class="block"><span class="label fix">Fix</span>
+    <p>Fetch data, close the connection, then stream. Also enable leak detection:</p>
+    <pre><code>spring:
+  datasource:
+    hikari:
+      leak-detection-threshold: 30000
+      maximum-pool-size: 20</code></pre>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q3">
+  <span class="qnum">Q3</span>
+  <p class="question">API works locally but becomes slow in production. How do you debug it?</p>
+  <div class="block"><span class="label example">Example</span><p>A search endpoint returns in 50ms locally but takes 3s in prod.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Compare data volume &mdash; 500 rows locally vs 5 million in prod. Run <code>EXPLAIN ANALYZE</code> on the exact prod query.</li>
+      <li>Check whether an index that exists locally is missing in prod, or vice versa.</li>
+      <li>Check network hops &mdash; localhost DB vs cross-AZ calls in prod.</li>
+      <li>Check prod logging level &mdash; verbose <code>DEBUG</code> logging with object serialization can silently add hundreds of ms.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label root">Root Cause</span><p>The <code>WHERE</code> clause applied a function on an indexed column (<code>WHERE LOWER(email) = ?</code>), preventing index use at scale &mdash; invisible locally on a tiny table.</p></div>
+  <div class="block"><span class="label fix">Fix</span><p>Add a functional index (<code>CREATE INDEX ON users (LOWER(email))</code>) or normalize data on write instead of filtering with a function.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q4">
+  <span class="qnum">Q4</span>
+  <p class="question">A Spring Boot service starts returning random 500 errors. Where do you begin?</p>
+  <div class="block"><span class="label example">Example</span><p>~2% of requests to <code>/checkout</code> fail with a generic 500 and no obvious pattern.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Add a global exception handler if missing, so every 500 logs the full stack trace with a correlation ID.</li>
+      <li>Search logs by correlation ID to see the exact exception, not just "500 returned."</li>
+      <li>Check whether failures correlate with a specific payload shape, user segment, or time window.</li>
+    </ul>
+    <pre><code>@ExceptionHandler(Exception.class)
+public ResponseEntity&lt;ErrorResponse&gt; handleGeneric(Exception ex, HttpServletRequest req) {
+    log.error("Unhandled exception, traceId={}", MDC.get("traceId"), ex);
+    return ResponseEntity.status(500).body(new ErrorResponse("Internal error", MDC.get("traceId")));
+}</code></pre>
+  </div>
+  <div class="block"><span class="label root">Root Cause</span><p>A <code>NullPointerException</code> on <code>order.getDiscount().getCode()</code> &mdash; discount was <code>null</code> for orders without a promo, and a recent change stopped guarding for that.</p></div>
+  <div class="block"><span class="label fix">Fix</span><p>Add null-safety (<code>Optional</code>, defensive checks), plus a unit test for "no discount applied," and add contract tests for optional fields.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q5">
+  <span class="qnum">Q5</span>
+  <p class="question">Memory usage keeps increasing until the application crashes. How do you find the root cause?</p>
+  <div class="block"><span class="label example">Example</span><p>A Spring Boot service's heap climbs steadily over 6 hours and then OOMs.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Enable heap dump on OOM: <code>-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/dumps</code></li>
+      <li>Take periodic dumps (<code>jmap -dump:live,format=b,file=heap.hprof &lt;pid&gt;</code>) to compare growth over time.</li>
+      <li>Load into Eclipse MAT, run "Leak Suspects Report," and inspect the dominator tree.</li>
+      <li>Check GC logs (<code>-Xlog:gc*</code>) &mdash; if old-gen never drops after a full GC, it's a real leak.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label root">Root Cause</span><p>A static <code>Map&lt;String, List&lt;Event&gt;&gt;</code> used as an in-memory cache with no eviction policy grew unbounded as new event types were added.</p></div>
+  <div class="block"><span class="label fix">Fix</span>
+    <pre><code>Cache&lt;String, List&lt;Event&gt;&gt; cache = Caffeine.newBuilder()
+    .maximumSize(10_000)
+    .expireAfterWrite(Duration.ofMinutes(30))
+    .build();</code></pre>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q6">
+  <span class="qnum">Q6</span>
+  <p class="question">One downstream service becomes slow and affects your entire API. How would you isolate the impact?</p>
+  <div class="block"><span class="label example">Example</span><p><code>order-service</code> calls <code>payment-service</code>. Payment starts responding in 15s instead of 200ms, and threads pile up until the entire API becomes unresponsive &mdash; even endpoints unrelated to payments.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Confirm the correlation via a thread dump &mdash; are threads stuck <code>WAITING</code>/<code>TIMED_WAITING</code> on the payment client call?</li>
+      <li>Check whether a timeout is configured at all &mdash; often the bug is "no timeout set," so it waits indefinitely.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label fix">Fix</span>
+    <pre><code>@CircuitBreaker(name = "paymentService", fallbackMethod = "fallbackPayment")
+@TimeLimiter(name = "paymentService")
+public CompletableFuture&lt;PaymentResponse&gt; callPayment(PaymentRequest req) {
+    return CompletableFuture.supplyAsync(() -&gt; paymentClient.charge(req));
+}</code></pre>
+    <p>Also use a <b>bulkhead</b> (a separate thread pool) for the payment-service call so it can't starve threads used by unrelated endpoints.</p>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q7">
+  <span class="qnum">Q7</span>
+  <p class="question">Multiple users update the same record simultaneously. How do you prevent inconsistent data?</p>
+  <div class="block"><span class="label example">Example</span><p>Two support agents open the same ticket and update its status at the same time &mdash; one update silently overwrites the other (the "lost update" problem).</p></div>
+  <div class="block"><span class="label approach">Approach</span><p>Decide whether the case needs <i>optimistic</i> or <i>pessimistic</i> concurrency control based on contention frequency.</p></div>
+  <div class="block"><span class="label fix">Fix</span>
+    <p><b>Optimistic locking</b> (most common):</p>
+    <pre><code>@Entity
+public class Ticket {
+    @Version
+    private Long version;
+}</code></pre>
+    <p>A racing second update throws <code>OptimisticLockException</code> &rarr; return 409 Conflict telling the agent to refresh and retry.</p>
+    <p><b>Pessimistic locking</b> for high-contention resources (e.g., inventory decrement during a flash sale):</p>
+    <pre><code>SELECT * FROM inventory WHERE product_id = ? FOR UPDATE;</code></pre>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q8">
+  <span class="qnum">Q8</span>
+  <p class="question">Cache improves performance but starts serving stale data. How would you fix it?</p>
+  <div class="block"><span class="label example">Example</span><p>A product price updates in the DB, but the API keeps returning the old price for up to 10 minutes because of a Redis cache with a 10-minute TTL.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Confirm it's the cache, not replication lag, by checking Redis directly vs the DB value.</li>
+      <li>Decide: is short staleness acceptable (TTL-only is fine), or does this need strong consistency (needs invalidation)?</li>
+      <li>Check the cache key &mdash; if it's inconsistent, one part of the app updates one entry while another reads a different one.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label fix">Fix</span>
+    <p>Move from pure TTL to cache-aside with explicit invalidation on write:</p>
+    <pre><code>@Transactional
+public void updatePrice(Long productId, BigDecimal newPrice) {
+    productRepository.updatePrice(productId, newPrice);
+    redisTemplate.delete("product:" + productId); // evict on write
+}</code></pre>
+    <p>For multi-instance setups, publish an invalidation event (Redis Pub/Sub or Kafka) so <i>all</i> instances evict local caches, not just the shared Redis layer. Spring alternatives: <code>@CacheEvict</code> to remove, <code>@CachePut</code> to refresh in place &mdash; always keep the cache key consistent between read and write paths.</p>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q9">
+  <span class="qnum">Q9</span>
+  <p class="question">Your scheduled job executes multiple times after deploying multiple instances. Why?</p>
+  <div class="block"><span class="label example">Example</span><p>A <code>@Scheduled</code> daily billing job runs at midnight. After scaling from 1 to 3 instances, customers get billed 3 times.</p></div>
+  <div class="block"><span class="label approach">Approach</span><p>This is expected once you understand it: each instance runs its own in-process scheduler independently, unaware of the others.</p></div>
+  <div class="block"><span class="label fix">Fix</span>
+    <p>Use <b>ShedLock</b> so only one instance executes at a time:</p>
+    <pre><code>@Scheduled(cron = "0 0 0 * * *")
+@SchedulerLock(name = "dailyBilling", lockAtMostFor = "PT30M", lockAtLeastFor = "PT5M")
+public void runDailyBilling() {
+    billingService.processDailyBilling();
+}</code></pre>
+    <p>This uses a shared DB/Redis table as the lock coordinator. For heavier needs, move scheduling out of the app entirely (Quartz with a JDBC job store, or an external orchestrator like Airflow / AWS EventBridge triggering a single Lambda).</p>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q10">
+  <span class="qnum">Q10</span>
+  <p class="question">Application is healthy, but users are still getting timeouts. What would you investigate?</p>
+  <div class="block"><span class="label example">Example</span><p>Health checks return 200 OK, CPU/memory look normal, but users report intermittent timeouts.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Check the load balancer / ingress layer &mdash; connection queue depth, backlog, 5xx rates at the LB, not just the app.</li>
+      <li>Check if the client-side timeout is simply too aggressive relative to actual p99 under load.</li>
+      <li>Check the app's thread pool queue length (e.g., Tomcat's <code>accept-count</code>) &mdash; requests may queue for a worker thread even while CPU is idle.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label root">Root Cause</span><p>Tomcat's <code>max-threads</code> was set too low relative to real concurrency, so requests queued and timed out at the LB before reaching an app thread &mdash; app-level metrics looked "healthy" because the requests never got that far.</p></div>
+  <div class="block"><span class="label fix">Fix</span><p>Tune <code>server.tomcat.threads.max</code> and <code>accept-count</code> based on load testing, and monitor queue depth as its own metric, not just CPU/memory.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q11">
+  <span class="qnum">Q11</span>
+  <p class="question">API response is slow even though the database query is fast. Where else could the bottleneck be?</p>
+  <div class="block"><span class="label example">Example</span><p>DB query takes 20ms per <code>EXPLAIN ANALYZE</code>, but the endpoint takes 800ms end-to-end.</p></div>
+  <div class="block"><span class="label approach">Approach</span><p>Instrument each phase of the request (deserialization &rarr; business logic &rarr; DB call &rarr; serialization &rarr; external calls) instead of assuming the DB is the bottleneck.</p></div>
+  <div class="block"><span class="label root">Root Cause</span><p>The response DTO triggered lazy loading of a collection with 200 related entities, each requiring a separate query &mdash; the "20ms" measured was just the first query, not the hidden N+1 chain behind Jackson serialization.</p></div>
+  <div class="block"><span class="label fix">Fix</span>
+    <p>Use <code>JOIN FETCH</code> or a dedicated projection/DTO query. Catch this earlier by enabling Hibernate statistics in staging:</p>
+    <pre><code>spring:
+  jpa:
+    properties:
+      hibernate:
+        generate_statistics: true</code></pre>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q12">
+  <span class="qnum">Q12</span>
+  <p class="question">Logs are available across services, but tracing one request is difficult. What would you implement?</p>
+  <div class="block"><span class="label example">Example</span><p>A user reports "my order failed," but you have separate logs for <code>api-gateway</code>, <code>order-service</code>, <code>inventory-service</code>, and <code>payment-service</code>, with no way to connect them.</p></div>
+  <div class="block"><span class="label approach">Approach &amp; Fix</span>
+    <p>Implement distributed tracing with a propagated trace ID:</p>
+    <pre><code>// Filter that generates/propagates trace ID
+String traceId = request.getHeader("X-Trace-Id");
+if (traceId == null) traceId = UUID.randomUUID().toString();
+MDC.put("traceId", traceId);</code></pre>
+    <p>Pass <code>X-Trace-Id</code> downstream on every outbound call, and log it via MDC everywhere. For full visibility, adopt OpenTelemetry to get automatic spans across HTTP, DB, and messaging calls &mdash; visualized in Jaeger, Zipkin, or Grafana Tempo. Centralize logs (ELK/Loki) with trace ID as a searchable field, so tracing an order becomes one query: <code>traceId=abc123</code>.</p>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q13">
+  <span class="qnum">Q13</span>
+  <p class="question">Traffic suddenly increases 10x. What would you check before simply adding more servers?</p>
+  <div class="block"><span class="label example">Example</span><p>A marketing campaign drives 10x normal traffic in an hour.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Identify the actual constraint first &mdash; CPU, DB connections, or a downstream rate limit. Scaling app servers won't help if the DB is the bottleneck; you'll just exhaust the connection pool faster with more instances.</li>
+      <li>Check whether it's genuine user traffic or a <b>retry storm</b> from an upstream failure amplifying load artificially.</li>
+      <li>Check cache hit rate &mdash; a drop means the cache layer is undersized for the new pattern.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label fix">Fix</span><p>Scale horizontally <i>and</i> add a read replica or connection pooler (PgBouncer). Add rate limiting at the edge to shed excess load gracefully (429s instead of timeouts). Ensure autoscaling targets request-based metrics, not just CPU, since I/O-bound services often stay CPU-cool under load.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q14">
+  <span class="qnum">Q14</span>
+  <p class="question">Application works perfectly in staging but fails in production. What differences would you compare?</p>
+  <div class="block"><span class="label example">Example</span><p>A payment integration works flawlessly in staging but fails silently in prod.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li><b>Config/secrets:</b> staging often points to a sandbox key vs prod's live key with different rate limits or stricter validation.</li>
+      <li><b>Data shape:</b> staging has clean, minimal test data; prod has years of legacy edge cases.</li>
+      <li><b>Scale:</b> race conditions may never trigger in staging's low traffic.</li>
+      <li><b>Network:</b> staging might allow all outbound calls; prod may block some via security groups.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label root">Root Cause</span><p>The prod third-party payment API enforced strict idempotency-key validation, but staging's sandbox didn't &mdash; a bug generating duplicate idempotency keys never surfaced until prod.</p></div>
+  <div class="block"><span class="label fix">Fix</span><p>Make staging match prod as closely as possible (same API tier, similar data volume via anonymized prod data), and add contract tests against the real sandbox with production-like validation rules.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q15">
+  <span class="qnum">Q15</span>
+  <p class="question">A service crashes only under heavy load. How would you identify the actual root cause?</p>
+  <div class="block"><span class="label example">Example</span><p>A service runs fine normally but crashes with <code>OutOfMemoryError</code> or hangs entirely during a load test or traffic spike.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Reproduce deliberately with a load testing tool (k6, Gatling) against staging, ramping up while watching metrics.</li>
+      <li>Take a thread dump right <i>before</i> the crash (not after) &mdash; script a trigger that captures <code>jstack</code> when CPU/memory crosses a threshold.</li>
+      <li>Look for thread pool queue overflow, deadlocks, or synchronous blocking calls inside a loop that don't scale.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label root">Root Cause</span><p>A <code>synchronized</code> method around an in-memory rate limiter became a massive contention point &mdash; under low load it was invisible, but under heavy load nearly every thread queued for that single lock, cascading into thread pool exhaustion.</p></div>
+  <div class="block"><span class="label fix">Fix</span><p>Replace the coarse <code>synchronized</code> block with a lock-free structure (<code>AtomicInteger</code>, <code>ConcurrentHashMap</code>) or a distributed rate limiter (Redis + Lua script) that doesn't serialize all threads through one JVM-level lock.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<h2 class="part-title">Part 2 &mdash; Spring Boot &amp; Microservices Design Scenarios</h2>
+
+<div class="card" id="q16">
+  <span class="qnum">Q16</span>
+  <p class="question">Application is fine under normal traffic but becomes very slow under high traffic. How will you find the root cause?</p>
+  <div class="block"><span class="label example">Example</span><p>A flash-sale event drives traffic 5x normal, and p95 latency climbs from 300ms to 4s while error rates stay low.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Don't jump into changing code &mdash; first localize where the slowness comes from: application logs, API response time, DB query time, memory/CPU usage, and thread usage.</li>
+      <li>Use Spring Boot Actuator, Grafana, a profiler, or Splunk to correlate metrics with the load spike.</li>
+      <li>If the DB is slow, optimize queries or add indexes. If the same data is fetched repeatedly, add caching. If an external API is slow, add timeout, retry, and a circuit breaker. If it's genuinely capacity, plan to scale.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label fix">Fix</span><p>Usually a combination: add a covering index for the hot query, wrap the read path in <code>@Cacheable</code>, and add Resilience4j timeouts around any external dependency in the request path.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q17">
+  <span class="qnum">Q17</span>
+  <p class="question">You added @Transactional, but data is still partially saved when an exception happens. How will you debug and fix it?</p>
+  <div class="block"><span class="label example">Example</span><p>An order-placement method saves the order header but not the order lines when a downstream validation throws a checked <code>InventoryException</code>.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Confirm <code>@Transactional</code> is on the service layer method (not the repository or controller).</li>
+      <li>Check the exception type &mdash; Spring rolls back by default only for unchecked exceptions (<code>RuntimeException</code>). A checked exception won't trigger rollback unless told to.</li>
+      <li>Check the method isn't <code>private</code> &mdash; Spring's proxy-based AOP can't intercept private methods.</li>
+      <li>Check it isn't being called from within the same class (self-invocation bypasses the proxy entirely).</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label fix">Fix</span>
+    <pre><code>@Transactional(rollbackFor = Exception.class)
+public void placeOrder(OrderRequest req) throws InventoryException {
+    // ...
+}</code></pre>
+    <p>And move self-invoked transactional methods into another Spring bean, or inject a self-reference, so the proxy is actually used.</p>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q18">
+  <span class="qnum">Q18</span>
+  <p class="question">One microservice calls another via REST, but the second service is sometimes slow or down. How will you handle timeout, retry, and fallback?</p>
+  <div class="block"><span class="label example">Example</span><p><code>order-service</code> calls <code>inventory-service</code> to check stock; inventory occasionally takes 10s+ to respond during its own GC pauses.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Set a proper timeout so the caller never waits indefinitely.</li>
+      <li>Retry only for transient failures, with a capped retry count and exponential backoff (to avoid amplifying load on an already struggling service).</li>
+      <li>Add a fallback: a default response, a cached response, or a clear error message.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label fix">Fix</span><p>Use Resilience4j for timeout, retry, circuit breaker, and fallback together, e.g. <code>@CircuitBreaker</code> + <code>@Retry</code> + <code>@TimeLimiter</code> stacked on the client call, with a fallback method that returns cached stock levels.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q19">
+  <span class="qnum">Q19</span>
+  <p class="question">A JWT token is still valid, but the user's role changed in the database. How do you make sure old permissions aren't misused?</p>
+  <div class="block"><span class="label example">Example</span><p>A user is demoted from <code>ADMIN</code> to <code>VIEWER</code> at 10:00 AM, but their JWT (issued at 9:00 AM, valid until 11:00 AM) still carries the <code>ADMIN</code> role claim.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <p>JWTs are stateless by design, so a role change doesn't automatically invalidate an issued token. Mitigate with:</p>
+    <ul>
+      <li>Short access-token expiry (10&ndash;15 minutes), paired with a refresh token flow.</li>
+      <li>For sensitive APIs, re-check the latest role from DB/cache rather than trusting the token claim blindly.</li>
+      <li><b>Token versioning:</b> keep a token version per user in the DB. Bump it whenever the role changes; reject any token carrying an older version.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label fix">Fix</span><p>Store <code>tokenVersion</code> on the user record and embed it as a claim. On each request, compare the claim to the current DB value in a lightweight cache-backed check &mdash; mismatch means "reject and force re-login."</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q20">
+  <span class="qnum">Q20</span>
+  <p class="question">Database queries are increasing suddenly because of the N+1 query problem. How will you detect and solve it?</p>
+  <div class="block"><span class="label example">Example</span><p>An endpoint listing 50 users fires 51 queries: one to fetch users, then one per user to lazily fetch their orders.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Enable SQL logging and count queries per API call.</li>
+      <li>Confirm the pattern: one query for the parent, then N queries for child collections triggered by lazy loading.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label fix">Fix</span><p>Use <code>JOIN FETCH</code>, <code>@EntityGraph</code>, or a custom projection query to fetch everything needed in one round trip. Re-check SQL logs afterward to confirm the query count dropped.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q21">
+  <span class="qnum">Q21</span>
+  <p class="question">One API is throwing LazyInitializationException in production. How will you identify and fix it?</p>
+  <div class="block"><span class="label example">Example</span><p>An endpoint fetches an <code>Employee</code> inside a transaction, returns it, and a serializer later tries to access the lazy <code>department</code> field after the Hibernate session has already closed.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Identify which lazy field triggers the exception from the stack trace.</li>
+      <li>Fetch the needed data <i>inside</i> the transaction, not after it.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label fix">Fix</span><p>Use <code>JOIN FETCH</code> or <code>@EntityGraph</code> to eagerly load exactly what's required, or map to a DTO with only the needed fields inside the transactional method. Avoid making everything <code>EAGER</code> globally &mdash; that trades this bug for a performance problem.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q22">
+  <span class="qnum">Q22</span>
+  <p class="question">Messages from Kafka or RabbitMQ are processed twice. How will you handle duplicate processing?</p>
+  <div class="block"><span class="label example">Example</span><p>A payment-processing consumer receives the same <code>PAYMENT_INITIATED</code> event twice after a broker rebalance, and charges the customer twice.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <p>Accept that at-least-once delivery means duplicates <i>will</i> happen &mdash; the fix is making the consumer idempotent, not preventing redelivery.</p>
+  </div>
+  <div class="block"><span class="label fix">Fix</span>
+    <p>Attach a unique message/transaction ID to every message. Before processing, check if that ID was already handled; if so, skip it:</p>
+    <pre><code>if (processedIdRepository.existsById(event.getMessageId())) {
+    return; // already processed, skip
+}
+processPayment(event);
+processedIdRepository.save(new ProcessedId(event.getMessageId()));</code></pre>
+    <p>This is critical for payments, orders, and notifications where duplicates cause real business damage.</p>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q23">
+  <span class="qnum">Q23</span>
+  <p class="question">A microservice publishes an event, but the consumer service is down at that time. How do you make sure the event isn't lost?</p>
+  <div class="block"><span class="label example">Example</span><p><code>order-service</code> publishes <code>ORDER_PLACED</code>, but <code>notification-service</code> is mid-deployment and temporarily unavailable.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <p>Decouple producer and consumer entirely via a message broker (Kafka/RabbitMQ) instead of a direct call. The producer publishes to the broker regardless of consumer availability; the message persists in the topic/queue until read.</p>
+  </div>
+  <div class="block"><span class="label fix">Fix</span><p>In Kafka, consumer offsets track what's been processed so a restarted consumer resumes where it left off. In RabbitMQ, use acknowledgments to confirm processing. If processing keeps failing, route to a dead letter queue instead of dropping the message, and alert on DLQ growth.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q24">
+  <span class="qnum">Q24</span>
+  <p class="question">You have two implementations of the same interface, and Spring is confused about which bean to inject. How will you solve this?</p>
+  <div class="block"><span class="label example">Example</span><p>Both <code>CreditCardPaymentService</code> and <code>UpiPaymentService</code> implement <code>PaymentService</code>, and a plain <code>@Autowired PaymentService paymentService</code> fails to start with <code>NoUniqueBeanDefinitionException</code>.</p></div>
+  <div class="block"><span class="label approach">Approach</span><p>Spring found more than one bean of the same type and can't pick automatically &mdash; you need to disambiguate explicitly.</p></div>
+  <div class="block"><span class="label fix">Fix</span>
+    <pre><code>@Autowired
+@Qualifier("upiPaymentService")
+private PaymentService paymentService;</code></pre>
+    <p>If one implementation should be the default in most places, mark it <code>@Primary</code> instead, and reserve <code>@Qualifier</code> for the specific overrides.</p>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q25">
+  <span class="qnum">Q25</span>
+  <p class="question">Actuator is enabled in production, but you don't want everyone to access health, metrics, or environment details. How will you secure it?</p>
+  <div class="block"><span class="label example">Example</span><p><code>/actuator/env</code> is publicly reachable and leaks datasource URLs and internal config to anyone who hits the endpoint.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Don't expose all Actuator endpoints publicly &mdash; endpoints like <code>/actuator/env</code>, <code>/actuator/beans</code>, and <code>/actuator/configprops</code> can leak sensitive details.</li>
+      <li>Expose only what's needed publicly &mdash; usually <code>/actuator/health</code> and <code>/actuator/info</code>.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label fix">Fix</span><p>Secure the rest behind Spring Security with a dedicated role (e.g. <code>ACTUATOR_ADMIN</code>), restrict access to admin users or monitoring tools only, and enforce HTTPS throughout.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q26">
+  <span class="qnum">Q26</span>
+  <p class="question">Secret keys and database passwords shouldn't live in application.properties. How will you manage them securely?</p>
+  <div class="block"><span class="label example">Example</span><p>A prod DB password is committed directly into <code>application-prod.properties</code> in the repo &mdash; visible to anyone with repo access.</p></div>
+  <div class="block"><span class="label approach">Approach</span><p>Never hardcode credentials in code or config files. Keep non-sensitive config in properties/YAML, but source sensitive values from outside the codebase.</p></div>
+  <div class="block"><span class="label fix">Fix</span><p>Use environment variables, Spring Cloud Config Server, or a dedicated secret manager &mdash; HashiCorp Vault, AWS Secrets Manager, Azure Key Vault, or Kubernetes Secrets. The application reads secrets at runtime, which also makes rotating secrets possible without a code change.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q27">
+  <span class="qnum">Q27</span>
+  <p class="question">Authentication is handled by one service, but other services also need to know if the user is valid. How will you design security?</p>
+  <div class="block"><span class="label example">Example</span><p><code>auth-service</code> handles login; <code>order-service</code>, <code>catalog-service</code>, and <code>payment-service</code> each need to know the caller is authenticated and what role they hold.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <p>Centralize authentication in one service. On successful login, issue a JWT containing user ID and roles. Every downstream request carries this token.</p>
+  </div>
+  <div class="block"><span class="label fix">Fix</span><p>The API Gateway validates the token first; downstream services can independently validate it too and make authorization decisions based on the embedded role claims &mdash; no service needs to re-authenticate the user. Use HTTPS everywhere, and add service-to-service authentication (mTLS or a service mesh) for internal calls if needed.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q28">
+  <span class="qnum">Q28</span>
+  <p class="question">Your application calls three external APIs, and one has rate limits. How do you avoid crossing the limit while staying stable?</p>
+  <div class="block"><span class="label example">Example</span><p>A geocoding API allows only 100 requests/minute, but your app calls it on every checkout to validate an address.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Understand the exact limit (requests per minute/second) and enforce it client-side before you hit it externally.</li>
+      <li>Cache data that doesn't change frequently to cut unnecessary calls.</li>
+      <li>Retry only on transient failures, with exponential backoff &mdash; never retry aggressively.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label fix">Fix</span><p>Add client-side rate limiting with Bucket4j or Resilience4j's <code>RateLimiter</code>, and return a fallback/queued response when the limit is reached instead of letting the external API block or ban your app.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q29">
+  <span class="qnum">Q29</span>
+  <p class="question">One API fetches the same master data again and again from the database. How will you use caching to improve performance?</p>
+  <div class="block"><span class="label example">Example</span><p>An address form calls the "country list" endpoint on every page load, hitting the DB for the same ~200 rows thousands of times a day.</p></div>
+  <div class="block"><span class="label approach">Approach</span><p>Identify data that's read often but changes rarely &mdash; country/state/city lists, product categories, configuration data &mdash; and cache it.</p></div>
+  <div class="block"><span class="label fix">Fix</span>
+    <pre><code>@EnableCaching
+// ...
+@Cacheable("countries")
+public List&lt;Country&gt; getCountries() {
+    return countryRepository.findAll();
+}</code></pre>
+    <p>First call populates the cache from the DB; subsequent calls read from cache. If master data changes, evict or refresh it with <code>@CacheEvict</code> or <code>@CachePut</code> rather than waiting for TTL expiry.</p>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q30">
+  <span class="qnum">Q30</span>
+  <p class="question">One API returns thousands of records and the frontend becomes slow. How will you implement pagination and sorting?</p>
+  <div class="block"><span class="label example">Example</span><p>A <code>/products</code> endpoint returns all 50,000 rows in one response, and the browser tab freezes rendering the table.</p></div>
+  <div class="block"><span class="label approach">Approach</span><p>Never return everything at once. Have the frontend send page number, page size, sort field, and sort direction, and let the backend return only what's needed.</p></div>
+  <div class="block"><span class="label fix">Fix</span>
+    <pre><code>@GetMapping("/products")
+public Page&lt;Product&gt; getProducts(
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "20") int size,
+        @RequestParam(defaultValue = "name") String sort) {
+    Pageable pageable = PageRequest.of(page, size, Sort.by(sort));
+    return productRepository.findAll(pageable);
+}</code></pre>
+    <p>Spring Data JPA returns only the requested slice, plus total record and page counts for the frontend to build a paginator.</p>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q31">
+  <span class="qnum">Q31</span>
+  <p class="question">You have different database URLs for dev, QA, and production. How will you manage this without changing code every time?</p>
+  <div class="block"><span class="label example">Example</span><p>The dev DB is a local Postgres instance; QA points to a shared test cluster; prod points to an RDS instance with different credentials entirely.</p></div>
+  <div class="block"><span class="label approach">Approach</span><p>Never hardcode environment-specific values in code. Use Spring Boot profiles instead.</p></div>
+  <div class="block"><span class="label fix">Fix</span>
+    <p>Create <code>application-dev.yml</code>, <code>application-qa.yml</code>, and <code>application-prod.yml</code>, each with its own DB URL and config. Activate the right one at startup:</p>
+    <pre><code>spring.profiles.active=dev</code></pre>
+    <p>The code stays identical across environments &mdash; only configuration changes.</p>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q32">
+  <span class="qnum">Q32</span>
+  <p class="question">Users upload PDF or image files. How will you handle file upload, validation, storage, and retrieval?</p>
+  <div class="block"><span class="label example">Example</span><p>A "resume upload" feature needs to accept PDFs up to 5MB and reject disguised executables renamed with a <code>.pdf</code> extension.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <ul>
+      <li>Accept the file via <code>MultipartFile</code> in a POST controller.</li>
+      <li>Validate file type, size, extension, and that it isn't empty &mdash; and don't trust the file name alone; check the actual content type.</li>
+    </ul>
+  </div>
+  <div class="block"><span class="label fix">Fix</span><p>Store the actual file in cloud storage (AWS S3, Azure Blob) rather than locally, and persist only metadata (file name, path, type, uploader, timestamp) in the database. For retrieval, read the stored path/URL from the DB and return it or stream the file.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q33">
+  <span class="qnum">Q33</span>
+  <p class="question">Uploaded files are stored inside the application server folder, and files disappear after deployment. What will you change?</p>
+  <div class="block"><span class="label example">Example</span><p>Profile pictures saved to <code>/app/uploads/</code> on the server vanish the moment the container is redeployed, since the filesystem is ephemeral.</p></div>
+  <div class="block"><span class="label root">Root Cause</span><p>Storing files inside the app server's local filesystem breaks on redeploy (folder gets replaced) and doesn't work across multiple instances (a file uploaded to instance A won't exist on instance B).</p></div>
+  <div class="block"><span class="label fix">Fix</span><p>Move storage outside the application entirely &mdash; AWS S3, Azure Blob, Google Cloud Storage, or a shared network filesystem. Keep only the file's metadata in the database, and reference the actual file by its external URL/path. This makes storage safe across redeployments and scalable across instances.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q34">
+  <span class="qnum">Q34</span>
+  <p class="question">You need to send a welcome email after registration, but it shouldn't slow down the registration API. How will you design this?</p>
+  <div class="block"><span class="label example">Example</span><p>The SMTP provider occasionally takes 3&ndash;4 seconds to accept a message, which would otherwise make every signup feel sluggish.</p></div>
+  <div class="block"><span class="label approach">Approach</span><p>Complete and persist the registration first, and never make the user wait on email delivery.</p></div>
+  <div class="block"><span class="label fix">Fix</span>
+    <p>Simple approach &mdash; run email sending on a separate thread:</p>
+    <pre><code>@Async
+public void sendWelcomeEmail(User user) {
+    emailClient.send(user.getEmail(), "Welcome!");
+}</code></pre>
+    <p>Better approach for reliability &mdash; publish a <code>USER_REGISTERED</code> event to Kafka/RabbitMQ, and have a separate email service consume it and send the email. If the email service is slow or down, registration itself never fails.</p>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q35">
+  <span class="qnum">Q35</span>
+  <p class="question">Your application needs to be deployed using Docker and CI/CD. What steps will you follow from code push to deployment?</p>
+  <div class="block"><span class="label example">Example</span><p>A developer merges a PR to <code>main</code>, and the change needs to reach production automatically with tests and a health check gate.</p></div>
+  <div class="block"><span class="label approach">Approach / Pipeline</span>
+    <ul>
+      <li>Developer pushes code to Git &mdash; pipeline triggers automatically.</li>
+      <li>Build the project, run unit tests, then integration tests if configured.</li>
+      <li>Produce a JAR, then build a Docker image from the Dockerfile.</li>
+      <li>Push the image to a registry (Docker Hub, AWS ECR, Azure Container Registry).</li>
+      <li>Deploy to the target server or Kubernetes; environment-specific config comes from profiles, environment variables, ConfigMaps, or Secrets.</li>
+      <li>After deployment, verify health via Actuator's health endpoint; if it fails, the pipeline should stop or roll back automatically.</li>
+    </ul>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q36">
+  <span class="qnum">Q36</span>
+  <p class="question">Your application needs to support multiple languages, like English and Hindi. How will you implement internationalization?</p>
+  <div class="block"><span class="label example">Example</span><p>An error message like "Invalid email address" needs to render as "अमान्य ईमेल पता" for Hindi-speaking users.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <p>Create locale-specific message property files &mdash; <code>messages_en.properties</code>, <code>messages_hi.properties</code> &mdash; with the same keys, translated per language.</p>
+  </div>
+  <div class="block"><span class="label fix">Fix</span><p>Use a <code>LocaleResolver</code> to decide the user's language from the request header, user profile setting, or a request parameter (e.g. <code>Accept-Language: hi</code>), and let Spring pick the matching properties file automatically when resolving message keys.</p></div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<div class="card" id="q37">
+  <span class="qnum">Q37</span>
+  <p class="question">One API needs to handle a very high number of concurrent requests without blocking threads. When will you choose Spring WebFlux, and what mistakes will you avoid?</p>
+  <div class="block"><span class="label example">Example</span><p>A notification-streaming endpoint needs to hold tens of thousands of concurrent long-lived connections &mdash; a traditional thread-per-request model would exhaust threads fast.</p></div>
+  <div class="block"><span class="label approach">Approach</span>
+    <p>Choose WebFlux when the API handles many concurrent requests, or mostly waits on external systems (external API calls, streaming data, real-time data) rather than doing CPU-bound work. Use <code>Mono</code> for zero-or-one results and <code>Flux</code> for multiple/streamed results.</p>
+  </div>
+  <div class="block"><span class="label fix">Fix</span>
+    <ul>
+      <li>Avoid blocking calls inside a reactive chain &mdash; no plain JDBC calls, use reactive drivers (R2DBC) where possible.</li>
+      <li>Never use <code>Thread.sleep()</code> inside a reactive pipeline.</li>
+      <li>Avoid calling <code>.block()</code> unnecessarily &mdash; it defeats the purpose of being non-blocking.</li>
+    </ul>
+    <p>Rule of thumb: only adopt WebFlux when the full call chain can realistically stay non-blocking end-to-end &mdash; mixing in blocking code negates most of its benefit.</p>
+  </div>
+  <a class="backtotop" href="#top">&uarr; back to top</a>
+</div>
+
+<footer>
+  Production Scenario-Based Interview Guide &middot; 37 questions &middot; compiled for study &amp; interview prep
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java Backend Developer — Interview Question Bank (2–5 YOE)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0d1117;
+    --bg-raised: #12181f;
+    --bg-card: #151c24;
+    --line: #232b34;
+    --line-soft: #1a212a;
+    --text: #dfe6ec;
+    --text-dim: #8a97a3;
+    --text-faint: #57626c;
+    --accent: #7ee3c2;
+    --accent-dim: #4a8f79;
+    --amber: #e3b567;
+    --coral: #e38a7e;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+
+  /* ===== Header ===== */
+  .topbar{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(13,17,23,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display:flex;
+    align-items:center;
+    gap: 16px;
+  }
+  .prompt-glyph{
+    font-family: var(--mono);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 15px;
+    flex-shrink:0;
+  }
+  .search-wrap{
+    flex: 1;
+    position: relative;
+  }
+  #search{
+    width: 100%;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13.5px;
+    padding: 9px 14px 9px 34px;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color .15s ease;
+  }
+  #search::placeholder{ color: var(--text-faint); }
+  #search:focus{ border-color: var(--accent-dim); }
+  .search-icon{
+    position:absolute; left:11px; top:50%; transform:translateY(-50%);
+    color: var(--text-faint);
+    font-size: 13px;
+    pointer-events:none;
+  }
+  .stats{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  .stats b{ color: var(--accent); font-weight:600; }
+
+  /* ===== Hero ===== */
+  .hero{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 46px 24px 30px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .hero-eyebrow{
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .12em;
+    color: var(--accent-dim);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h1{
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.15;
+    margin: 0 0 14px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  h1 span{ color: var(--accent); }
+  .hero-sub{
+    color: var(--text-dim);
+    font-size: 15px;
+    max-width: 640px;
+    margin: 0 0 24px;
+  }
+  .hero-meta{
+    display:flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--text-faint);
+  }
+  .hero-meta div b{ color: var(--text); font-weight:600; display:block; font-size: 19px; font-family: var(--mono); }
+  .hero-meta div{ display:flex; flex-direction:column; gap:2px; }
+
+  /* ===== Category nav (chips) ===== */
+  .catnav{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .chip{
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--text-dim);
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .12s ease;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .chip:hover{ border-color: var(--accent-dim); color: var(--accent); }
+
+  /* ===== Main ===== */
+  main{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 20px 24px 80px;
+  }
+
+  .category{
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background: var(--bg-card);
+    overflow: hidden;
+  }
+  .cat-head{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 18px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .cat-num{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--bg);
+    background: var(--accent);
+    font-weight: 700;
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .cat-title{
+    font-weight: 600;
+    font-size: 15px;
+    flex: 1;
+    color: var(--text);
+  }
+  .cat-note{
+    font-size: 12.5px;
+    color: var(--text-faint);
+    font-weight: 400;
+    display:block;
+    margin-top: 2px;
+  }
+  .cat-count{
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--text-dim);
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    padding: 3px 8px;
+    border-radius: 20px;
+    flex-shrink:0;
+  }
+  .chevron{
+    color: var(--text-faint);
+    font-size: 11px;
+    transition: transform .18s ease;
+    flex-shrink:0;
+  }
+  .category.open .chevron{ transform: rotate(90deg); color: var(--accent); }
+
+  .cat-body{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .25s ease;
+    border-top: 1px solid var(--line-soft);
+  }
+  .category.open .cat-body{ border-top: 1px solid var(--line-soft); }
+
+  .qlist{
+    list-style: none;
+    margin: 0;
+    padding: 6px 0;
+  }
+  .qitem{
+    display: flex;
+    gap: 12px;
+    padding: 10px 18px 10px 16px;
+    border-bottom: 1px solid var(--line-soft);
+    align-items: flex-start;
+  }
+  .qitem:last-child{ border-bottom: none; }
+  .qidx{
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--text-faint);
+    padding-top: 1px;
+    min-width: 20px;
+    flex-shrink:0;
+  }
+  .qtext{
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .qtext mark{
+    background: rgba(126,227,194,0.22);
+    color: var(--accent);
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+  .qitem.hidden{ display: none; }
+
+  .no-results{
+    text-align:center;
+    padding: 60px 20px;
+    color: var(--text-faint);
+    font-family: var(--mono);
+    font-size: 13px;
+    display:none;
+  }
+
+  footer{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 30px 24px 60px;
+    color: var(--text-faint);
+    font-family: var(--mono);
+    font-size: 11.5px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  ::selection{ background: rgba(126,227,194,0.3); }
+
+  @media (max-width: 640px){
+    .hero-meta{ gap: 14px; }
+    .cat-title{ font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="prompt-glyph">&gt;_</span>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input id="search" type="text" placeholder="Filter questions — e.g. deadlock, Kafka, HashMap..." autocomplete="off">
+    </div>
+    <div class="stats"><b id="visibleCount">200</b> / 200 shown</div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">// interview prep — backend track</div>
+  <h1>Java Backend Developer<br><span>Real Interview Questions</span> for 2–5 Years Experience</h1>
+  <p class="hero-sub">A working set of 200 practical, scenario-driven questions actually asked in Java backend interviews — covering core language internals, JVM behavior, Spring, distributed systems, and production debugging. Organized into 20 topic blocks, 10 questions each.</p>
+  <div class="hero-meta">
+    <div><b>20</b>topic blocks</div>
+    <div><b>200</b>total questions</div>
+    <div><b>2–5 yrs</b>target level</div>
+  </div>
+</div>
+
+<div class="catnav" id="catnav"></div>
+
+<main>
+  <div id="categories"></div>
+  <div class="no-results" id="noResults">No questions match "<span id="noResultsTerm"></span>"</div>
+</main>
+
+<footer>
+  Compiled reference for interview preparation · click any block to expand · use the filter bar to search across all 200 questions
+</footer>
+
+<script>
+const DATA = [
+  {
+    title: "Core Java",
+    note: "OOP, memory model, exceptions, immutability",
+    questions: [
+      "Explain the four pillars of OOP. Where have you practically used encapsulation, inheritance, abstraction, and polymorphism?",
+      "How does Java achieve platform independence? Explain what happens from .java file to execution.",
+      "How does HashMap work internally? What happens when you call put() and get()?",
+      "Suppose two objects are logically equal. How would you make sure they behave correctly when stored in a HashSet or used as a HashMap key?",
+      "Why is String immutable in Java? What problems could occur if String were mutable?",
+      "What happens when an exception is thrown in Java? Explain the exception propagation mechanism.",
+      "How would you create an immutable class? What precautions do you need to take?",
+      "What is the difference between compile-time polymorphism and runtime polymorphism? Explain with a practical example.",
+      "Can you override a static method? Can you override a private method? Why?",
+      "What happens if you modify an object that is being used as a HashMap key?"
+    ]
+  },
+  {
+    title: "Collections",
+    note: "HashMap internals, concurrency, choosing the right structure",
+    questions: [
+      "How does HashMap internally store and retrieve data?",
+      "What happens internally when multiple keys have the same hash value?",
+      "Why is HashMap not thread-safe? What problems can occur when multiple threads modify it?",
+      "How does ConcurrentHashMap provide thread safety while allowing concurrent access?",
+      "When would you choose ArrayList, LinkedList, HashSet, TreeSet, or HashMap?",
+      "What happens when an ArrayList reaches its capacity?",
+      "Why does HashSet not allow duplicate elements?",
+      "How does TreeMap maintain sorted order?",
+      "What causes a ConcurrentModificationException?",
+      "Suppose you have millions of records and need frequent lookup by ID. Which collection would you choose and why?"
+    ]
+  },
+  {
+    title: "Java 8 / Streams",
+    note: "map/flatMap, laziness, Optional, parallel streams",
+    questions: [
+      "You have a list of employees. How would you find the employee with the second-highest salary using Streams?",
+      "How would you group employees by department and find the highest-paid employee in each department?",
+      "What is the difference between map() and flatMap()? Give a real example where flatMap() is required.",
+      "How would you remove duplicate objects from a list using Streams?",
+      "How would you find duplicate elements in a list using Java Streams?",
+      "What happens internally when a Stream pipeline is executed?",
+      "Why are intermediate Stream operations lazy? What benefit does this provide?",
+      "When should you avoid using parallel streams?",
+      "How would you handle null values safely while processing data using Streams?",
+      "What is Optional? When should you use it and when should you avoid it?"
+    ]
+  },
+  {
+    title: "Multithreading & Concurrency",
+    note: "race conditions, deadlocks, executors, CompletableFuture",
+    questions: [
+      "Suppose two threads increment the same counter 10,000 times. Why might the final result be incorrect? How would you fix it?",
+      "Explain the difference between synchronized, volatile, and atomic variables. When would you use each?",
+      "What is a race condition? Give a real-world example.",
+      "What is deadlock? Given two threads acquiring two locks in different orders, how would you prevent the deadlock?",
+      "What happens when you call wait()? What happens to the thread's lock?",
+      "What is the difference between Runnable and Callable?",
+      "Why would you use ExecutorService instead of manually creating threads?",
+      "How does a thread pool work? What happens when all threads in the pool are busy?",
+      "What is CompletableFuture and how would you execute multiple independent operations in parallel?",
+      "How would you make a shared object thread-safe?"
+    ]
+  },
+  {
+    title: "JVM & Memory",
+    note: "heap/stack, GC, OutOfMemoryError, JIT",
+    questions: [
+      "Explain the major memory areas of the JVM.",
+      "What is stored in heap and what is stored in stack?",
+      "How does Garbage Collection determine which objects can be removed?",
+      "What causes OutOfMemoryError? How would you troubleshoot it in production?",
+      "What causes StackOverflowError?",
+      "Can Java applications have memory leaks even though Java has Garbage Collection? Explain.",
+      "What is the difference between young generation and old generation?",
+      "What happens when an object becomes unreachable?",
+      "What is the role of the JIT compiler?",
+      "If CPU usage suddenly becomes 100% in a Java application, how would you investigate it?"
+    ]
+  },
+  {
+    title: "Spring Core",
+    note: "DI, bean lifecycle, AOP, circular dependencies",
+    questions: [
+      "Explain Dependency Injection. Why is constructor injection generally preferred?",
+      "What happens when Spring creates a Bean? Explain the Bean lifecycle.",
+      "How does Spring find and register Beans?",
+      "What is the difference between @Component, @Service, and @Repository?",
+      "What happens if Spring finds multiple Beans of the same type? How would you resolve it?",
+      "What is the difference between @Bean and @Component?",
+      "What is IoC Container? What responsibilities does it have?",
+      "What are Bean scopes in Spring? When would you use prototype scope?",
+      "What is circular dependency? How does Spring handle it?",
+      "What is Spring AOP? Where would you use it in a real application?"
+    ]
+  },
+  {
+    title: "Spring Boot",
+    note: "auto-configuration, profiles, health checks, startup",
+    questions: [
+      "What happens internally when you start a Spring Boot application?",
+      "How does Spring Boot auto-configuration work?",
+      "What exactly does @SpringBootApplication do?",
+      "How does Spring Boot decide which Beans to auto-configure?",
+      "How would you create environment-specific configurations for development, testing, and production?",
+      "How would you handle global exceptions in a Spring Boot REST application?",
+      "How would you validate incoming API requests?",
+      "How would you improve the startup time of a Spring Boot application?",
+      "How would you expose health and application metrics in production?",
+      "Your Spring Boot application works locally but fails after deployment. How would you troubleshoot it?"
+    ]
+  },
+  {
+    title: "REST API / Spring MVC",
+    note: "request lifecycle, versioning, pagination, idempotency",
+    questions: [
+      "Explain the complete lifecycle of an HTTP request in a Spring Boot application.",
+      "What is DispatcherServlet and what role does it play?",
+      "How would you design a REST API for creating, updating, retrieving, and deleting users?",
+      "When would you use PUT versus PATCH?",
+      "What HTTP status code would you return for different success and failure scenarios?",
+      "How would you implement pagination, sorting, and filtering for a REST API?",
+      "How would you prevent clients from sending invalid request data?",
+      "How would you version a REST API without breaking existing clients?",
+      "What does idempotency mean? Why is it important in backend systems?",
+      "An API is receiving 10,000 requests per second. What would you consider while designing it?"
+    ]
+  },
+  {
+    title: "Spring Security / JWT",
+    note: "auth flow, filter chain, token renewal, RBAC",
+    questions: [
+      "Explain the complete authentication flow when using JWT with Spring Security.",
+      "What happens internally when a request reaches the Spring Security filter chain?",
+      "How does JWT authentication work without maintaining a server-side session?",
+      "What information should and should not be stored inside a JWT?",
+      "What happens when a JWT expires? How would you handle token renewal?",
+      "What is the difference between authentication and authorization?",
+      "How would you implement role-based access control?",
+      "How would you revoke a JWT before its expiration time?",
+      "What security vulnerabilities should you consider when designing a REST API?",
+      "How would you secure communication between multiple backend services?"
+    ]
+  },
+  {
+    title: "JPA / Hibernate",
+    note: "persistence context, lazy loading, N+1, dirty checking",
+    questions: [
+      "Explain what happens internally when you call repository.save(entity).",
+      "What is the persistence context in Hibernate?",
+      "What is the difference between lazy and eager loading?",
+      "What is the N+1 query problem? How would you identify and fix it?",
+      "Explain the different entity states in Hibernate.",
+      "What is dirty checking? How does Hibernate detect changes to an entity?",
+      "What happens when you access a lazy-loaded relationship after the transaction has ended?",
+      "How would you design relationships between entities without creating unnecessary queries?",
+      "When would you use JPQL, native SQL, or derived query methods?",
+      "How would you optimize a Hibernate application that is executing too many database queries?"
+    ]
+  },
+  {
+    title: "SQL / Database",
+    note: "indexing, joins, normalization, deadlocks",
+    questions: [
+      "A query that used to take 100 ms now takes 10 seconds. How would you troubleshoot it?",
+      "How do database indexes work internally, and when can an index actually make performance worse?",
+      "How would you find duplicate records in a table?",
+      "How would you find the second-highest salary without using LIMIT?",
+      "Explain different types of JOINs with practical examples.",
+      "What is the difference between WHERE, GROUP BY, and HAVING?",
+      "How would you identify whether a SQL query is using an index?",
+      "What is database normalization? When would you intentionally denormalize data?",
+      "What causes database deadlocks? How would you troubleshoot one?",
+      "What happens when all database connections in the connection pool are occupied?"
+    ]
+  },
+  {
+    title: "Transactions",
+    note: "ACID, @Transactional internals, propagation, isolation",
+    questions: [
+      "Explain ACID properties with a practical example.",
+      "How does @Transactional work internally in Spring?",
+      "What happens if an exception occurs inside a @Transactional method?",
+      "Why might Spring fail to apply @Transactional when one method calls another method in the same class?",
+      "Explain transaction propagation with practical examples.",
+      "What are transaction isolation levels?",
+      "What are dirty reads, non-repeatable reads, and phantom reads?",
+      "How would you handle a transaction involving multiple database operations?",
+      "What happens if the database connection fails in the middle of a transaction?",
+      "How would you troubleshoot a transaction that is taking an unusually long time?"
+    ]
+  },
+  {
+    title: "Microservices",
+    note: "service boundaries, discovery, tracing, scaling",
+    questions: [
+      "You have a monolithic application. How would you decide whether it should be broken into microservices?",
+      "How would you identify service boundaries when designing microservices?",
+      "How do microservices communicate with each other?",
+      "What happens when one microservice becomes unavailable?",
+      "How would you prevent one failed service from bringing down the entire system?",
+      "How would you handle configuration across hundreds of microservice instances?",
+      "How would you implement service discovery?",
+      "How would you handle backward compatibility when changing an API used by multiple services?",
+      "How would you trace a request that passes through five different microservices?",
+      "How would you design microservices to handle sudden traffic growth?"
+    ]
+  },
+  {
+    title: "Resilience / Distributed Systems",
+    note: "timeouts, retries, circuit breakers, bulkheads",
+    questions: [
+      "What happens if Service A calls Service B and Service B takes 30 seconds to respond?",
+      "How would you implement timeout, retry, and circuit breaker together?",
+      "When can retries actually make a production problem worse?",
+      "What is cascading failure? Give a practical example.",
+      "How would you prevent cascading failures?",
+      "What is the Bulkhead pattern and why is it useful?",
+      "How would you handle a third-party API that frequently fails?",
+      "What is eventual consistency and why is it common in microservices?",
+      "How would you guarantee that an operation isn't processed twice?",
+      "How would you design a highly available microservice?"
+    ]
+  },
+  {
+    title: "Kafka",
+    note: "partitions, consumer groups, lag, delivery guarantees",
+    questions: [
+      "Explain what happens from the moment a producer sends a message until a consumer processes it.",
+      "Why does Kafka use partitions?",
+      "How does Kafka maintain message ordering?",
+      "What is a consumer group and how does it affect message consumption?",
+      "What happens when a Kafka consumer crashes while processing a message?",
+      "What is consumer lag? Why does it increase and how would you troubleshoot it?",
+      "How would you guarantee that a message isn't lost?",
+      "How would you handle duplicate messages in a Kafka consumer?",
+      "What is the difference between at-most-once, at-least-once, and exactly-once processing?",
+      "A Kafka consumer is processing 100 messages/sec while producers are sending 10,000 messages/sec. How would you solve the problem?"
+    ]
+  },
+  {
+    title: "Redis / Caching",
+    note: "cache-aside, invalidation, stampede, TTL strategy",
+    questions: [
+      "Why would you introduce Redis into a backend application?",
+      "Which data should and should not be cached?",
+      "Explain the cache-aside pattern.",
+      "What happens when cached data becomes stale?",
+      "How would you keep Redis and the database consistent?",
+      "What happens if Redis goes down? Should the application also go down?",
+      "What is cache stampede and how would you prevent it?",
+      "How would you decide an appropriate cache TTL?",
+      "How would you handle cache invalidation when database data changes?",
+      "Your API is still slow even after introducing Redis. How would you investigate it?"
+    ]
+  },
+  {
+    title: "Docker / Kubernetes",
+    note: "containers, probes, scaling, zero-downtime deploys",
+    questions: [
+      "How would you Dockerize a Spring Boot application?",
+      "What happens when a Docker container starts?",
+      "How are configuration and secrets passed to containers?",
+      "What happens when a container crashes?",
+      "How does Kubernetes restart and manage failed containers?",
+      "What is the difference between a Pod, Deployment, and Service?",
+      "How does Kubernetes perform horizontal scaling?",
+      "What is the purpose of readiness and liveness probes?",
+      "A Kubernetes pod keeps restarting. How would you troubleshoot it?",
+      "How would you deploy a new version without causing downtime?"
+    ]
+  },
+  {
+    title: "Production Troubleshooting",
+    note: "the closest to a real senior technical round",
+    questions: [
+      "Your application is working normally, but response time suddenly increases during peak traffic. Walk me through your investigation.",
+      "CPU usage reaches 100% on one production instance. What would you check?",
+      "Memory usage continuously increases after every deployment. How would you determine whether there is a memory leak?",
+      "One API suddenly takes 15 seconds while other APIs are normal. How would you isolate the bottleneck?",
+      "The database connection pool is exhausted. What could cause this and how would you troubleshoot it?",
+      "Users are intermittently receiving 500 errors, but you cannot reproduce the problem locally. What would you investigate?",
+      "A service is timing out while calling another microservice. How would you determine whether the problem is with the caller, receiver, network, or database?",
+      "After a deployment, error rates increase significantly. What steps would you take?",
+      "A Kafka consumer's lag keeps increasing. What could be the reasons and how would you troubleshoot it?",
+      "A production Kubernetes pod keeps crashing and restarting. What information would you collect before making changes?"
+    ]
+  },
+  {
+    title: "System Design",
+    note: "not FAANG-scale — realistic 2–5 YOE prompts",
+    questions: [
+      "Design a scalable User Management System.",
+      "Design an Order Management System.",
+      "Design an E-commerce backend.",
+      "Design a Notification Service.",
+      "Design a URL Shortener.",
+      "Design a Payment Service.",
+      "Design an Authentication Service.",
+      "Design a file upload/download service.",
+      "Design a high-traffic REST API.",
+      "Design an event-driven order-processing system using Kafka."
+    ],
+    trailer: "For each one, expect follow-ups around database choice, API design, caching, Kafka, scalability, failure handling, consistency, security, and monitoring."
+  },
+  {
+    title: "Coding / DSA",
+    note: "practical medium-level problems, not obscure puzzles",
+    questions: [
+      "Two Sum",
+      "Longest Substring Without Repeating Characters",
+      "Find duplicate elements",
+      "Find first non-repeating character",
+      "Find second-largest element",
+      "Check whether two strings are anagrams",
+      "Reverse a linked list",
+      "Merge overlapping intervals",
+      "Sliding-window maximum/minimum problems",
+      "Top K frequent elements"
+    ]
+  }
+];
+
+const categoriesEl = document.getElementById('categories');
+const catnavEl = document.getElementById('catnav');
+const searchEl = document.getElementById('search');
+const visibleCountEl = document.getElementById('visibleCount');
+const noResultsEl = document.getElementById('noResults');
+const noResultsTermEl = document.getElementById('noResultsTerm');
+
+let totalQuestions = 0;
+
+DATA.forEach((cat, ci) => {
+  totalQuestions += cat.questions.length;
+
+  // chip nav
+  const chip = document.createElement('a');
+  chip.className = 'chip';
+  chip.href = '#cat-' + ci;
+  chip.textContent = String(ci+1).padStart(2,'0') + ' · ' + cat.title;
+  chip.addEventListener('click', (e) => {
+    e.preventDefault();
+    const el = document.getElementById('cat-' + ci);
+    el.classList.add('open');
+    updateMaxHeight(el);
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  catnavEl.appendChild(chip);
+
+  // category block
+  const block = document.createElement('div');
+  block.className = 'category';
+  block.id = 'cat-' + ci;
+
+  const head = document.createElement('div');
+  head.className = 'cat-head';
+  head.innerHTML = `
+    <div class="cat-num">${String(ci+1).padStart(2,'0')}</div>
+    <div class="cat-title">${cat.title}<span class="cat-note">${cat.note}</span></div>
+    <div class="cat-count">${cat.questions.length} Q</div>
+    <div class="chevron">▶</div>
+  `;
+  head.addEventListener('click', () => {
+    block.classList.toggle('open');
+    updateMaxHeight(block);
+  });
+
+  const body = document.createElement('div');
+  body.className = 'cat-body';
+
+  const ul = document.createElement('ul');
+  ul.className = 'qlist';
+  cat.questions.forEach((q, qi) => {
+    const li = document.createElement('li');
+    li.className = 'qitem';
+    li.dataset.text = q.toLowerCase();
+    li.innerHTML = `<span class="qidx">${qi+1}.</span><span class="qtext">${q}</span>`;
+    ul.appendChild(li);
+  });
+  body.appendChild(ul);
+
+  if(cat.trailer){
+    const trailer = document.createElement('div');
+    trailer.style.cssText = 'padding:12px 18px 16px;font-size:12.5px;color:var(--text-faint);border-top:1px solid var(--line-soft);font-style:italic;';
+    trailer.textContent = cat.trailer;
+    body.appendChild(trailer);
+  }
+
+  block.appendChild(head);
+  block.appendChild(body);
+  categoriesEl.appendChild(block);
+});
+
+function updateMaxHeight(block){
+  const body = block.querySelector('.cat-body');
+  if(block.classList.contains('open')){
+    body.style.maxHeight = body.scrollHeight + 'px';
+  } else {
+    body.style.maxHeight = '0';
+  }
+}
+
+// open first category by default
+document.getElementById('cat-0').classList.add('open');
+updateMaxHeight(document.getElementById('cat-0'));
+
+visibleCountEl.textContent = totalQuestions;
+
+function escapeRegExp(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+searchEl.addEventListener('input', () => {
+  const term = searchEl.value.trim().toLowerCase();
+  let visible = 0;
+  const allBlocks = document.querySelectorAll('.category');
+
+  if(term === ''){
+    document.querySelectorAll('.qitem').forEach(li => {
+      li.classList.remove('hidden');
+      li.querySelector('.qtext').innerHTML = li.querySelector('.qtext').textContent;
+    });
+    allBlocks.forEach((b,i) => {
+      b.style.display = '';
+      b.classList.toggle('open', i===0);
+      updateMaxHeight(b);
+    });
+    visibleCountEl.textContent = totalQuestions;
+    noResultsEl.style.display = 'none';
+    return;
+  }
+
+  const re = new RegExp('(' + escapeRegExp(term) + ')', 'ig');
+
+  allBlocks.forEach(block => {
+    const items = block.querySelectorAll('.qitem');
+    let matchesInBlock = 0;
+    items.forEach(li => {
+      const match = li.dataset.text.includes(term);
+      li.classList.toggle('hidden', !match);
+      const textEl = li.querySelector('.qtext');
+      const original = textEl.textContent;
+      if(match){
+        textEl.innerHTML = original.replace(re, '<mark>$1</mark>');
+        matchesInBlock++;
+        visible++;
+      }
+    });
+    if(matchesInBlock > 0){
+      block.style.display = '';
+      block.classList.add('open');
+      updateMaxHeight(block);
+    } else {
+      block.style.display = 'none';
+    }
+  });
+
+  visibleCountEl.textContent = visible;
+  noResultsEl.style.display = visible === 0 ? 'block' : 'none';
+  noResultsTermEl.textContent = searchEl.value.trim();
+});
+</script>
+
+</body>
+</html>
