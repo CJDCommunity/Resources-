@@ -1,6 +1,3 @@
-Here's the updated Markdown with the latest cleaned list (**137 companies**). I removed companies that are no longer present (`Binary Accord`, `Cotyledon Technology`, `Gupshup Technology`, `Nisum`), added the missing companies (`Aptean`, `Bosch Global Software Technologies`, `CodecentricAI`, `CTS`, `Deloitte USI`, `Deqode Solution`, `Global Logic`, `Hoonartek`, `INTUIT`, `IQEQ`, `Lumbini Elite`, `MITS Global Consulting`, `Newgen Software`, `Sedin`, `Sopra Banking Software`, `TechPay Innovations`, `Toshiba`), and updated a few names for consistency.
-
-```md
 # 🏢 Community Companies List
 
 Welcome to the **Community Companies List**.
@@ -16,13 +13,15 @@ This document contains the names of organizations where our community members ar
 
 ---
 
-# Companies (137)
+# Companies (143)
 
 - Aara Tech Private Limited
 - Accenture
+- Acme Infovision Systems Pvt. Ltd.
 - Algonox Technologies
 - Allianz Technology
 - Alteatec
+- Amdocs
 - Anughraha
 - ANZ
 - Aptean
@@ -32,6 +31,7 @@ This document contains the names of organizations where our community members ar
 - AutoRABIT
 - Backflipt
 - Bajaj
+- Binary Accord
 - Birlasoft
 - Blackboard (Anthology Inc.)
 - Blue Yonder
@@ -40,8 +40,9 @@ This document contains the names of organizations where our community members ar
 - British Telecom
 - Broadridge
 - Capgemini
-- CaprusIT Pvt. Ltd.
-- Centrico India Private Limited (Ex-Sella India)
+- Caprus IT Pvt. Ltd.
+- Centific
+- Centrico India Private Limited
 - CipherCru Innovations Pvt. Ltd.
 - Cisco
 - CloudNexus
@@ -49,31 +50,35 @@ This document contains the names of organizations where our community members ar
 - Coforge
 - Cognizant
 - Corent Technology Pvt. Ltd.
+- Cotyledon Technology
 - Cradle Communities Inc.
 - CS Tech AI
-- CTS
+- CSIR-NAL
+- CMS Computers Limited
 - DBS Tech India
 - De La Rue
 - Decipher Zone Technologies Pvt. Ltd.
 - Deloitte
 - Deloitte USI
-- Deqode Solution
+- Deqode Solutions
 - Divergent Software Labs
 - DXC Technology
 - ECS Fin
 - eG
-- Employees' Provident Fund Organisation (EPFO)
+- Employee Provident Fund Organization (EPFO)
+- eQ Technologic
 - Ethical Intelligent Technology
 - Exabitz Solutions Pvt. Ltd.
 - EY GDS
 - Eyelit Technologies
+- Fedbank
 - Finforz Technologies
-- Freestone
 - Glimorra International
-- Global Logic
-- Global PayEX Private Limited
+- GlobalLogic
+- Global PayEX Pvt. Ltd.
 - Globocom Infotech
 - Go Digit General Insurance
+- Gupshup Technology
 - HCLTech
 - Hexaware
 - HID Global
@@ -84,22 +89,22 @@ This document contains the names of organizations where our community members ar
 - IBM
 - IBS
 - IBS Software
+- Imaginnovate
 - Incrux Technologies
 - InfoAxon Technologies
-- Infogain Pune
+- Infogain
 - Infosun Technology Pvt. Ltd.
 - Infosys
-- Infosys Limited
 - Infrablok
-- INTUIT
 - Intellect Design Arena
 - Intellify Worldwide Ltd.
+- Intuit
 - Iolite Technologies Pvt. Ltd.
 - IQEQ
 - ITC Infotech
 - JPMorgan Chase
 - Kaldin Solutions Pvt. Ltd.
-- KlimaShift
+- Klimashift
 - LTIMindtree
 - Lumbini Elite
 - Luxoft
@@ -109,23 +114,23 @@ This document contains the names of organizations where our community members ar
 - MITS Global Consulting Pvt. Ltd.
 - Myospaz Software
 - Nagarro
-- Nagarro Private Limited
 - NCR Corporation
 - Neurealm
 - Newfold Digital
 - Newgen Software
-- Newgen Software Technologies
-- Nexflare Dynamics Private Limited
+- Nexflare Dynamics Pvt. Ltd.
 - Nexxoft Inftel
 - NielsenIQ
+- Nisum
 - Niyantras
-- Onward Technology
+- Nucleus Software Exports Ltd.
+- Onward Technologies
 - Optculture
 - Oracle
 - Orchasp Limited
 - OSI Digital
 - Paycraft Solutions
-- PayTabs Global
+- PayTabs
 - Pegasystems
 - Perficient
 - Persistent
@@ -145,7 +150,7 @@ This document contains the names of organizations where our community members ar
 - Shroti Telecom Pvt. Ltd.
 - Siemens Technology & Services Pvt. Ltd.
 - Smackcoders Inc.
-- Snapwork Technology Pvt. Ltd.
+- Snapwork Technologies
 - Snithik Technologies
 - Socly.io
 - Sopra Banking Software
@@ -154,7 +159,7 @@ This document contains the names of organizations where our community members ar
 - Tata Consultancy Services (TCS)
 - Tech Mahindra
 - TechPay Innovations
-- Telus Digital
+- TELUS Digital
 - Temenos
 - The Crimson Wizard
 - Thoughtworks
@@ -169,11 +174,11 @@ This document contains the names of organizations where our community members ar
 - Valtech
 - Vcodewonders
 - Virtusa
-- Wazo Solutions Private Limited
+- Wazo Solutions Pvt. Ltd.
 - Website Software Pvt. Ltd.
 - WeCatchAI
+- Wipro
 - WiseTech Global
-- Wipro Limited
 - Xoriant
 - Zillionica Technology
 - ZL Technologies
@@ -196,4 +201,3 @@ The community also includes members who are currently:
 If you've joined a new company or notice any missing or incorrect information, please contact the community admins so this list can be updated.
 
 Together, we're building a stronger professional network. 🚀
-```
