@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    image: cjdc-docker-demo:local
+    container_name: cjdc-docker-demo
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
