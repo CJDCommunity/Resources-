@@ -1,0 +1,51 @@
+Interview with IntraEdge
+- Background and experience
+- self introduction
+- team info at Amex
+- Java and Spring Boot
+- What is the latest Java version you have used?
+- Which Spring Boot version have you used with Java 17?
+- How do you consume a RESTful service in Spring Boot?
+- Can you explain the flow of calling another microservice using WebClient?
+- What is the output of this Spring controller example?
+- What is the difference between @SpringBootTest and @WebMvcTest?
+- Have you worked on BDD testing?
+- What is the benefit of running smoke tests?
+- Which health checks have you used?
+- What is the difference between application health checks and downstream system smoke checks?
+- Java 8 functional interfaces
+- Which functional interfaces are available in Java 8?
+- Can you solve a coding problem using the Supplier functional interface?
+- Generate a random number between 1 and 100 using Supplier.
+- Java 17 records
+- Have you used Java 17 record classes?
+- Can a record class extend another class?
+- Can a record implement an interface?
+- Are record classes immutable?
+- Core Java output questions
+- What will be the output of a substring(5,3) style example?
+- Which exception will be thrown in that case?
+- Coding and design problem
+- Create a controller, service, and repository to save user credentials in the database.
+- How will you encrypt the password field before saving it?
+- Why should password not be stored directly in the database?
+- Why use BCryptPasswordEncoder?
+- What happens if you do not use BCryptPasswordEncoder and save plain text?
+- How would you write the controller for this API?
+- Should this endpoint use POST or PUT, and why?
+- Spring Data / repository concepts
+- What is the benefit of using JpaRepository?
+- Why would you use CrudRepository instead of JpaRepository in a simple case?
+- Why is constructor injection preferred over field injection?
+- Why should you avoid @Autowired field injection?
+- Kubernetes / deployment / AWS
+- When you deploy an application on EKS or Kubernetes, what all things should be checked before the pod starts taking traffic?
+- What is the role of init containers?
+- What is the benefit of liveness and readiness probes?
+- What is the benefit of readiness probe specifically?
+- How do you do auto scaling in your application?
+- How does horizontal pod autoscaling work?
+- Before the interview even started, I was asked to share my screen, turn on my camera during entire process , close all apps, and open my activity monitor. I was even asked to check for tools I hadn’t heard of.
+- I understand there’s a lot happening right now with AI concerns, but it still felt uncomfortable.
+- I stayed calm, followed everything, and focused on the interview. I cleared the round, while the client replied with their position going on hold.
+- If anyone is hiring, can refer, or just wants to connect and talk about interview prep, let's connect
