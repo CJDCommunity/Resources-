@@ -3,19 +3,12 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:f89820,100:5382a1&height=200&section=header&text=CJD%20Community&fontSize=56&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Learn%20%E2%80%A2%20Share%20%E2%80%A2%20Grow%20Together&descAlignY=58&descSize=18" alt="CJD Community banner" />
 </p>
 
-<!-- Typing tagline -->
-<p align="center">
-  <a href="https://github.com/CJDCommunity">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=800&color=F89820&center=true&vCenter=true&width=640&lines=☕+A+community+for+Java+developers;🚀+Interview+prep%2C+roadmaps+%26+real+experiences;🤝+Learn+together.+Grow+together.;✨+Something+bigger+is+brewing..." alt="Typing tagline" />
-  </a>
-</p>
 
 <!-- Badges -->
 <p align="center">
   <img src="https://img.shields.io/github/followers/CJDCommunity?label=Followers&style=for-the-badge&logo=github&color=5382a1" alt="Followers" />
   <img src="https://img.shields.io/github/stars/CJDCommunity/Resources-?label=Stars&style=for-the-badge&logo=github&color=f89820" alt="Stars" />
   <img src="https://img.shields.io/badge/Open%20to-Contributions-2ea44f?style=for-the-badge&logo=git&logoColor=white" alt="Open to contributions" />
-  <img src="https://komarev.com/ghpvc/?username=CJDCommunity&label=Profile%20views&color=5382a1&style=for-the-badge" alt="Profile views" />
 </p>
 
 ---
