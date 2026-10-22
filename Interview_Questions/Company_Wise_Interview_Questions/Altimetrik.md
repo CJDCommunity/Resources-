@@ -15,9 +15,9 @@ Questions asked here in Altimetrik second time:
 
 Stream questions
 
-- // Find the following details
-- // count of employees (each department)
-- // name and age of youngest employee (each department)
+- Find the following details
+- count of employees (each department)
+- name and age of youngest employee (each department)
 
 
 Stream Question:
@@ -33,6 +33,8 @@ Stream Question:
 - if two threads are trying to access same hashmap and do changes over it what could be the error, how cocurrent hahsmap helps here in one word are hashmap thread safe
 - what has changed in hashmap  in java8 then previous versions
 - Monolith to Microservices architecture why and where? for reseliency did you implemented any pattern
+
+
 The second set of questions from stream was from a third party for come company as Xponentium, got it from some recruiter from linkedin
 
 

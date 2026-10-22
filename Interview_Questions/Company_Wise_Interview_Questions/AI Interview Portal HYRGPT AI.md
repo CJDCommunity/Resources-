@@ -1,6 +1,4 @@
-
-
-Not sure about Deloitte, but this is the interview pattern followed by most other companies using HYRGPT AI.
+Not sure about Deloitte, but this is the interview pattern followed by most other companies using HYRGPT AI
 
 In HYRGPT AI, the interview starts with a self-introduction, so make sure to mention your technology stack clearly.
 

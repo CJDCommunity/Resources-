@@ -1,19 +1,20 @@
 Interview Accenture Interview-1
 1. what i did in my project and how I did it?
-2. react scenio based questions if backend sends you data how you consume it and put modal on frontend based on data availability 
+2. react scenio based questions if backend sends you data how you consume it and put modal on frontend based on data availability
 3. java 8 streams coding 2 questions
-1. sql coding questions
-- Spring boot questional @transactional , @contoller vs @restcontroller, about how conifgs are done, how deployment is done ? Any knowledge on AWS,azure concepts,
-- Any knowledge on pubsub model, liquibase for database migrations
+4. sql coding questions
+5. Spring boot questional @transactional , @contoller vs @restcontroller, about how conifgs are done, how deployment is done ? Any knowledge on AWS,azure concepts,
+6. Any knowledge on pubsub model, liquibase for database migrations
+
 
 Interview Accenture-2
 
-🔥 ACCENTURE – JAVA INTERVIEW QUESTIONS (CUSTOM SOFTWARE ENGINEER)
-📌 DAY 1 – CORE JAVA (MOST IMPORTANT)
-🔹 OOPs (Must be PERFECT)
+- ACCENTURE – JAVA INTERVIEW QUESTIONS (CUSTOM SOFTWARE ENGINEER)
+- DAY 1 – CORE JAVA (MOST IMPORTANT)
+- OOPs (Must be PERFECT)
 - Explain OOPs concepts with real-time example
 - What is Encapsulation? Why is it important?
-- Inheritance vs Composition  
+- Inheritance vs Composition
 - What is Polymorphism? Types?
 - Compile-time vs Runtime polymorphism
 - Abstract class vs Interface
@@ -22,7 +23,7 @@ Interview Accenture-2
 - IS-A vs HAS-A relationship
 - Can we create object of abstract class?
 
-🔹 Core Java Basics
+- Core Java Basics
 - Difference between JDK, JRE, JVM
 - What is JVM? Explain JVM architecture
 - What is classloader?
@@ -34,7 +35,7 @@ Interview Accenture-2
 - String vs StringBuilder vs StringBuffer
 - How memory works for String (String Pool)
 
-🔹 Exception Handling
+- Exception Handling
 - What is exception?
 - Checked vs Unchecked exceptions
 - Difference between throw and throws
@@ -46,9 +47,9 @@ Interview Accenture-2
 - Error vs Exception
 - Can we catch multiple exceptions in single catch?
 
-📌 DAY 2 – COLLECTIONS, MULTITHREADING, JAVA 8
+- DAY 2 – COLLECTIONS, MULTITHREADING, JAVA 8
 
-🔹 Collections Framework (VERY IMPORTANT)
+- Collections Framework (VERY IMPORTANT)
 - What is Collection framework?
 - Difference between List, Set, Map
 - ArrayList vs LinkedList
@@ -65,7 +66,7 @@ Interview Accenture-2
 - Difference between Iterator and ListIterator
 - Fail-fast vs Fail-safe iterator
 
-🔹 Multithreading (Accenture asks basics)
+- Multithreading (Accenture asks basics)
 - What is thread?
 - Thread vs Runnable
 - Thread life cycle
@@ -77,7 +78,7 @@ Interview Accenture-2
 - notify() vs notifyAll()
 - What is volatile keyword?
 
-🔹 Java 8 (HIGH WEIGHTAGE)
+- Java 8 (HIGH WEIGHTAGE)
 - What is Java 8?
 - What is Lambda expression?
 - What is functional interface?
@@ -90,8 +91,8 @@ Interview Accenture-2
 - What is Optional?
 - How to avoid NullPointerException using Optional?
 
-📌 DAY 3 – SPRING, REST, GIT, AGILE, CODING
-🔹 Spring / Spring Boot
+- DAY 3 – SPRING, REST, GIT, AGILE, CODING
+- Spring / Spring Boot
 - What is Spring?
 - What is Spring Boot?
 - Difference between Spring and Spring Boot
@@ -107,7 +108,7 @@ Interview Accenture-2
 - How exception handling is done in Spring Boot?
 - What is application.properties?
 
-🔹 Git (Simple but Mandatory)
+- Git (Simple but Mandatory)
 - What is Git?
 - git pull vs git fetch
 - git merge vs git rebase
@@ -115,14 +116,14 @@ Interview Accenture-2
 - What is branch?
 - What is commit?
 
-🔹 Agile & Waterfall
+- Agile & Waterfall
 - Agile vs Waterfall
 - What is Scrum?
 - Sprint, Daily Stand-up, Retrospective
 - What is your role in Agile team?
 - What tools you used (JIRA, etc.)?
 
-🔹 Coding Questions (VERY COMMON)
+- Coding Questions (VERY COMMON)
 - Reverse a String
 - Check Palindrome
 - Find duplicate characters in String
@@ -133,7 +134,7 @@ Interview Accenture-2
 - Find missing number in array
 - Sort HashMap by values
 
-🔹 Project-Based Questions (CRITICAL)
+- Project-Based Questions (CRITICAL)
 - Explain your project architecture
 - What was your role?
 - Technologies used?
@@ -146,85 +147,71 @@ Interview Accenture-2
 - Any critical bug you solved?
 
 
-Interview Accenture Interview-3-Nishant 
-
-1. Introduction And I Explained the Project 
-(First Question)
-
+Interview Accenture Interview-3
+1. Introduction And I Explained the Project  (First Question)
 2. OOPS
-Pillar, Sub Types 
-You need to Explain Key Term
+- Pillar, Sub Types
+- You need to Explain Key Term
 
 3. HashMap
-First Solve by JCF
-Now Solve by Stream
-
-FrequencyMap
-Highest Frequency 
-Second Height frequency 
-How To Print it ?
+- First Solve by JCF
+- Now Solve by Stream
+- FrequencyMap
+- Highest Frequency
+- Second Height frequency
+- How To Print it ?
 
 4. @SpringBootAnnotation
-Explain Each and Every One
-Specially @Configuration.
-For Example 
-How Spring-boot-starter-jpa 
-How Classpath ?
+- Explain Each and Every One
+- Specially @Configuration.
+- For Example
+- How Spring-boot-starter-jpa
+- How Classpath ?
 
+1. Project Already Java8 , Now Migrated to Java21
+- How will you Improve the Existing Code ?
+- I only Remember Record Class
 
-5. Project Already Java8 , Now Migrated to Java21
-How will you Improve the Existing Code ?
-I only Remember Record Class 
-
-6. Comparator and Comparable 
-(last Question)
+1. Comparator and Comparable  (last Question)
 
 
 
 Interview Accenture Interview-AI
 
+- Round 1 – HackerRank Assessment
+- 2 coding questions
+- Solved 1 completely (passed the round)
 
-Recently, I attended the interview process for **Accenture – Custom Software Engineer (AI Full Stack Java Developer)**.
-Sharing my experience in case it helps others preparing for similar roles.
+- Round 2 – Technical/Skill Interview
+- Covered a wide range of concepts from Core Java to Cloud & DevOps:
+- Singleton Design Pattern (code implementation)
+- Microservices failure handling
+- JWT implementation
+- Java Stream API (2 coding problems)
+- String vs StringBuilder vs StringBuffer
+- Producer–Consumer problem
+- Consumer vs Supplier functional interfaces
+- SQL queries
+- synchronized keyword
+- Excluding configuration in Spring Boot
+- Git & Docker commands
+- Jenkins pipeline implementation
+- Core Java code snippets (predict output/behavior)
+- Lazy vs Eager loading
+- React basics
+- AWS concepts
+- Types of AI models
 
-🔹 **Round 1 – HackerRank Assessment**
-• 2 coding questions
-• Solved 1 completely (passed the round)
+- Round 3 – Managerial Round
+- Behavioral questions focused on:
+- Team collaboration
+- Project experience
+- Problem-solving approach
+- Communication skills
 
-🔹 **Round 2 – Technical/Skill Interview**
-Covered a wide range of concepts from Core Java to Cloud & DevOps:
+- Round 4 – Technical/Cloud Round (unexpected)
+- Primarily focused on Cloud concepts like:
+- Load balancing
+- Scalability
+- Architecture discussions
 
-• Singleton Design Pattern (code implementation)
-• Microservices failure handling
-• JWT implementation
-• Java Stream API (2 coding problems)
-• String vs StringBuilder vs StringBuffer
-• Producer–Consumer problem
-• Consumer vs Supplier functional interfaces
-• SQL queries
-• synchronized keyword
-• Excluding configuration in Spring Boot
-• Git & Docker commands
-• Jenkins pipeline implementation
-• Core Java code snippets (predict output/behavior)
-• Lazy vs Eager loading
-• React basics
-• AWS concepts
-• Types of AI models
-
-🔹 **Round 3 – Managerial Round**
-Behavioral questions focused on:
-• Team collaboration
-• Project experience
-• Problem-solving approach
-• Communication skills
-
-🔹 **Round 4 – Technical/Cloud Round (unexpected)**
-Primarily focused on **Cloud concepts** like:
-• Load balancing
-• Scalability
-• Architecture discussions
-
-Overall, it was a great learning experience with deep technical discussions across **Java, Spring Boot, Microservices, Cloud, DevOps, and AI**.
-
-Hope this helps anyone preparing for Accenture or similar full-stack roles. Happy to connect and discuss preparation strategies 🙂
