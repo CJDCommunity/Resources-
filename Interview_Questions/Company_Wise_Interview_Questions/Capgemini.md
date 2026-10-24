@@ -1,3 +1,64 @@
+
+Yesterday I had L1 architect interview with CapGemini- Cleared.
+1. What is the Abstract Factory design pattern?
+2. What are the SOLID principles?
+3. For what purpose do you use AI tools in your project?
+4. On what basis do you choose technologies to develop a project?
+5. Why do we get a ClassCastException at runtime when using a TreeSet?
+6. What is the maximum number of elements an ArrayList can hold?
+7. Write a code to find the employee with the second-highest salary per department using Java 8 Streams?
+8. What is the difference between orElse and orElseGet in the Optional class?
+9. Why should the key of a HashMap be immutable?
+10. Coding test, print extra elements from list1 comparing with list 
+```
+
+import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.*;
+
+class Main {
+
+    
+    public static void main(String[] args) {
+
+        List<Integer> list1 = List.of(1,2,3,4,4);
+        List<Integer> list2 = List.of(1,2,3,4);
+       
+
+        Map<Integer,Integer> map= new HashMap<>();
+        for(Integer value : list1){
+            map.put(value, map.getOrDefault(value,0) + 1);// freque
+        }
+
+        for(Integer value : list2){
+            if(map.containsKey(value)){
+                if(map.get(value) == 1){
+                    map.remove(value);
+                }else {
+                 map.put(value, map.get(value)-1);
+                }
+            }
+        }
+
+        for(Map.Entry<Integer,Integer> entry : map.entrySet()){
+            System.out.println(entry.getKey());
+        }
+
+        
+    }
+}
+```
+
+
+
+
+
+
+
+---
+
+
 I recently attended an interview for a Java Backend Developer role at TCS and Capgemini. 
 I wanted to share my experience along with the questions that were asked.
 
