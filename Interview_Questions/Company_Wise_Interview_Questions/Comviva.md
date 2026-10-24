@@ -1,4 +1,3 @@
-
 Comviva Round 1Java Developer Interview Questions (5 YOE)
 1. Explain the complete JVM Lifecycle. Cover Class Loading, Runtime Memory Areas, Execution Engine, JIT Compiler, and Garbage Collection. How do different Garbage Collectors work? What would happen if Java did not have a Garbage Collector?
 2. Explain the @Transactional annotation in Spring Boot. How does it work internally? Describe the role of Spring AOP, proxies, Transaction Manager, commit, and rollback. 

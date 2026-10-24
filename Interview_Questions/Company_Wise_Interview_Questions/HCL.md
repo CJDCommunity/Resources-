@@ -33,13 +33,13 @@ HCL interviews are usually practical + project-based, focusing on:
 - 2️⃣0️⃣ How do you implement pagination & sorting in Spring Boot?
 
 💾 JPA / Hibernate & Database
-- 2️⃣1️⃣ Difference between save(), persist(), merge()  🤔🤔🤔 
+- 2️⃣1️⃣ Difference between save(), persist(), merge() 
 - 2️⃣2️⃣ What is lazy loading vs eager loading? 
 - 2️⃣3️⃣ What is N+1 problem?
-- 2️⃣4️⃣ Explain @OneToMany and @ManyToOne mapping  🤔🤔🤔 
-- 2️⃣5️⃣ What are entity states in Hibernate?  🤔🤔🤔 
-- 2️⃣6️⃣ What is indexing and how it improves performance?  🤔🤔🤔 
-- 2️⃣7️⃣ Difference between INNER JOIN vs LEFT JOIN  🤔🤔🤔 
+- 2️⃣4️⃣ Explain @OneToMany and @ManyToOne mapping 
+- 2️⃣5️⃣ What are entity states in Hibernate? 
+- 2️⃣6️⃣ What is indexing and how it improves performance? 
+- 2️⃣7️⃣ Difference between INNER JOIN vs LEFT JOIN 
 - 2️⃣8️⃣ What is ACID property?
 - 2️⃣9️⃣ Write SQL to find second highest salary
 - 3️⃣0️⃣ How do you optimize slow SQL queries? 
