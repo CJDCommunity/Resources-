@@ -1,3 +1,141 @@
+🚀 Infosys Java Developer Interview Experience | 4+ YOE  
+  
+Recently came across an interesting Infosys Java/Spring Boot/Microservices interview experience where the discussion went far beyond theoretical questions.  
+  
+The interviewer focused heavily on real-world production scenarios, scalability, performance, distributed systems, and problem-solving.  
+  
+Here are some of the key areas discussed 👇  
+  
+☕ Java & Spring Boot  
+🔹 Java fundamentals & advanced concepts  
+🔹 Spring Bean lifecycle & dependency management  
+🔹 Spring Boot application architecture  
+🔹 N+1 problem and optimization  
+🔹 Exception handling  
+🔹 Transactions & idempotency  
+  
+📨 Kafka & Microservices  
+🔹 Kafka topics, partitions & consumer groups  
+🔹 Processing high message volumes  
+🔹 Event-driven architecture  
+🔹 Handling duplicate events  
+🔹 Retry & failure handling  
+🔹 Circuit Breaker  
+🔹 Saga & distributed transactions  
+🔹 Inter-service communication  
+  
+🗄️ Database & SQL  
+🔹 Stored Procedures  
+🔹 Query optimization for large datasets  
+🔹 Indexing & pagination  
+🔹 Handling millions of records  
+🔹 Database bottlenecks  
+🔹 Designing scalable database solutions  
+  
+🐳 Docker & CI/CD  
+🔹 Dockerizing a Spring Boot application  
+🔹 Dockerfile vs Docker container/image  
+🔹 Docker Compose  
+🔹 CI/CD pipeline for Spring Boot  
+🔹 Handling failed production deployments  
+🔹 Unit-test failures during deployment  
+  
+🔥 Production & System Design  
+  
+One of the biggest takeaways was that experienced-level interviews are increasingly focused on:  
+  
+🔹 Scalability → How would you handle millions of records/requests?  
+🔹 Performance → N+1, indexing, pagination, caching  
+🔹 Reliability → Retry, Circuit Breaker, Idempotency  
+🔹 Messaging → Kafka, partitions, consumer groups  
+🔹 Distributed Transactions → Saga & compensation  
+🔹 Database → Query optimization & stored procedures  
+🔹 DevOps → Docker, CI/CD & deployment  
+  
+💡 Key Takeaway  
+  
+For 4+ YOE Java developers, preparing only definitions may not be enough.  
+  
+Be ready to explain how you would design, debug, optimize and scale a real production system.  
+  
+Understanding the WHY behind a solution is becoming just as important as knowing the technology.
+
+
+
+
+
+---
+
+
+Infosys | Senior Java / Spring Boot / Microservices Interview Experience  
+  
+A recent interview experience for a Senior Java / Spring Boot / Microservices role at Infosys — and this one was heavily focused on real-world scenarios rather than just theoretical questions.  
+  
+Here are some of the key areas discussed 👇  
+  
+☕ Java & Design Principles  
+🔹 SOLID principles with real-world examples  
+  
+🌱 Spring Boot & Hibernate  
+🔹 N+1 problem in Hibernate  
+🔹 Identifying and resolving N+1 queries  
+🔹 Handling 5 lakh records efficiently  
+🔹 Optimizing a slow API  
+  
+📨 Kafka  
+🔹 Kafka Topics  
+🔹 Handling high-volume data  
+🔹 Partitions & Consumer Groups  
+🔹 Failed message handling  
+  
+🏗️ Microservices & System Design  
+🔹 Designing Payment, Inventory & Notification services  
+🔹 Handling Payment Service failures  
+🔹 Payment succeeds but Inventory fails  
+🔹 Notification service unavailability  
+🔹 Distributed transactions  
+🔹 Saga Pattern  
+🔹 Circuit Breaker  
+🔹 Retries & Timeouts  
+🔹 Idempotency in payment processing  
+  
+🗄️ SQL Server  
+🔹 Stored Procedures  
+🔹 When and why to use them  
+🔹 Query optimization for large datasets  
+  
+⚙️ CI/CD  
+🔹 CI/CD fundamentals  
+🔹 Designing a pipeline for Spring Boot  
+🔹 Handling failed unit tests  
+🔹 Failed production deployments  
+  
+🐳 Docker  
+🔹 Dockerizing a Spring Boot application  
+🔹 Dockerfile  
+🔹 Image vs Container  
+🔹 Docker Compose for Spring Boot services  
+  
+💡 Key Takeaway  
+  
+The interview wasn’t limited to “What is X?” questions.  
+  
+The focus was much more on:  
+  
+📌 Scalability → 5 lakh records  
+📌 Performance → N+1 / Indexing / Pagination / Caching  
+📌 Messaging → Kafka / Partitions / Consumer Groups  
+📌 Reliability → Retry / Circuit Breaker / Idempotency  
+📌 Distributed Systems → Saga / Compensation  
+📌 Database → Stored Procedures / Query Optimization  
+📌 DevOps → Docker / CI/CD / Deployment  
+  
+A strong reminder that for senior backend roles, knowing a technology is not enough. You should be able to explain how you would use it to solve a real production problem.
+
+
+
+
+---
 
 https://www.linkedin.com/feed/update/urn:li:activity:7510636685941112833/
   

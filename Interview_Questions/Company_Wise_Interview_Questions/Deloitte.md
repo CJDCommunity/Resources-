@@ -1,3 +1,178 @@
+
+🚀 Deloitte Interview Experience | Java Backend / Software Engineer | 4 Rounds  
+  
+Recently, I went through a four-round interview process at Deloitte for a Software Engineer role in AI & Engineering / Engineering Consulting.  
+  
+The process covered everything from Core Java and problem-solving to advanced backend concepts, system design, project discussions, and behavioral questions.  
+  
+Sharing the experience to help fellow Java developers prepare for similar opportunities. 👇  
+  
+💻 Round 1 – Core Java & Problem Solving  
+  
+The first round focused on fundamentals and coding skills.  
+  
+Topics discussed:  
+  
+* Core Java concepts and Java features  
+* JVM architecture and internal working  
+* Java memory management and Garbage Collection  
+* OOP principles  
+* Collections Framework and internal concepts  
+* DSA and problem-solving  
+* Coding approach, optimization, and code quality  
+  
+⚙️ Round 2 – Advanced Java, Scenarios & System Design  
+  
+This round focused on practical engineering knowledge and designing scalable applications.  
+  
+Advanced Java & Concurrency  
+  
+* Internal working of ConcurrentHashMap  
+* Thread safety and concurrency  
+* ExecutorService and thread pools  
+* Task execution and management  
+* Asynchronous programming using CompletableFuture  
+* Handling multiple asynchronous operations and exceptions  
+  
+Design Patterns  
+  
+* Singleton  
+* Factory  
+* Builder  
+* Saga  
+  
+System Design / HLD  
+  
+* Designing scalable applications  
+* Service-level architecture and API design  
+* Database considerations and caching  
+* Handling high traffic and horizontal scaling  
+* Asynchronous processing  
+* Reliability and fault tolerance  
+* Choosing appropriate components based on requirements  
+  
+🧩 Round 3 – Project, Managerial & Behavioral  
+  
+This round explored how I approach real-world engineering challenges and collaborate with teams.  
+  
+Project discussion:  
+  
+* Role, responsibilities, and project architecture  
+* Features and modules personally implemented  
+* Individual contribution to the team  
+* Implementation challenges and production issues  
+* Root-cause analysis and resolution  
+* Coordination with developers, QA, and stakeholders  
+  
+Scenario-based questions:  
+  
+* Describe a challenging problem you faced.  
+* How did you identify the root cause?  
+* What alternatives did you consider?  
+* How did your solution affect performance and scalability?  
+* How would you redesign it if traffic increased significantly?  
+  
+Behavioral topics:  
+  
+* Handling pressure and deadlines  
+* Taking ownership  
+* Managing disagreements  
+* Working with team members  
+* Learning from mistakes  
+  
+🤝 Round 4 – HR & Compensation Discussion  
+  
+The final round focused on HR-related discussions and compensation negotiation.  
+  
+📌 Key Takeaways  
+  
+This interview was a reminder that strong fundamentals are only one part of backend engineering interviews.
+
+
+
+
+
+---
+
+🎯 Deloitte SDE-2 (Java) Interview Experience | Important Questions for 4+ YOE  
+  
+Preparing for a Java SDE-2 role at Deloitte? Here’s a structured list of interview questions compiled by Sarad Kumar Yadav based on patterns reported by candidates across interview-preparation communities.  
+  
+The focus goes beyond definitions — expect Core Java internals, coding, Spring Boot, SQL, API design, concurrency, and real-world problem-solving. 👇  
+  
+💻 Round 1 — Online Assessment  
+  
+🔹 Find the first non-repeating character in a string.  
+🔹 Detect a cycle in a linked list.  
+🔹 MCQs on OOP, exception handling, DBMS normalization, and aptitude.  
+  
+☕ Round 2 — Core Java & DSA  
+  
+1️⃣ == vs equals() — why does String behave differently?  
+  
+2️⃣ Why should equals() and hashCode() be overridden together?  
+  
+3️⃣ How does HashMap work internally? What changed in Java 8?  
+  
+4️⃣ HashMap vs LinkedHashMap vs TreeMap.  
+  
+5️⃣ Explain the four pillars of OOP with real project examples.  
+  
+6️⃣ Interface vs abstract class — when would you choose each?  
+  
+7️⃣ Method overloading vs overriding — compile-time vs runtime resolution.  
+  
+8️⃣ Solve the Two Sum problem.  
+  
+9️⃣ What is the diamond problem, and how does Java handle it?  
+  
+🌱 Round 3 — Spring Boot, SQL & Design  
+  
+🔹 What is Dependency Injection, and why prefer constructor injection over field injection?  
+  
+🔹 What are Spring’s default bean scopes? When would you use a scope other than Singleton?  
+  
+🔹 @Component vs @Service vs @Repository vs @Controller.  
+  
+🔹 What is the N+1 query problem in Hibernate/JPA, and how do you fix it?  
+  
+🔹 @Transactional — default propagation vs REQUIRES_NEW.  
+  
+🔹 What is API idempotency, and why is it important for REST APIs?  
+  
+🔹 Design a rate limiter for an API.  
+  
+🔹 synchronized vs ReentrantLock — when would you use an explicit lock?  
+  
+🤝 Round 4 — Managerial / HR  
+  
+🔹 Walk me through a challenging bug you fixed.  
+  
+🔹 Why Deloitte?  
+  
+🔹 Tell me about a time you disagreed with a teammate on a technical decision.  
+  
+🔹 What questions would you ask the interviewer?  
+  
+💡 My takeaway for Java developers  
+  
+Don’t just memorize definitions. Prepare to explain why a particular approach works, discuss trade-offs, and connect concepts to your real project experience.  
+  
+Prioritize:  
+✅ Core Java and Collections internals  
+✅ DSA and coding practice  
+✅ Spring Boot, JPA/Hibernate, and transactions  
+✅ API design and system design fundamentals  
+✅ Real-world examples from your project
+
+
+
+
+
+
+---
+
+
 Deloitte round 2, 4yoe
 
 ConcurrentHashMap internals in Java 8+

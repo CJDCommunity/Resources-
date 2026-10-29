@@ -1,3 +1,103 @@
+🚀 Flipkart SDE-2 Interview Preparation | Java Developers  
+  
+Preparing for an SDE-2 role at Flipkart? Don’t focus only on DSA. Product-based companies also evaluate your Low-Level Design (LLD), System Design, Java concurrency, database fundamentals, and real-world problem-solving skills.  
+  
+Here are some important questions and design problems to practise. 👇  
+  
+🔹 1. DSA & Coding  
+  
+1️⃣ Trapping Rain Water  
+  
+2️⃣ Find the K Closest Points to the Origin  
+  
+3️⃣ Longest Substring Without Repeating Characters  
+  
+4️⃣ Implement an LRU Cache from Scratch  
+  
+5️⃣ Word Break Problem (Dynamic Programming)  
+  
+6️⃣ Minimum Window Substring  
+  
+7️⃣ Find the Kth Largest Element in a Stream  
+  
+8️⃣ Clone a Graph  
+  
+9️⃣ Maximum Product Subarray  
+  
+🔟 Course Schedule using Topological Sorting  
+  
+1️⃣1️⃣ Median of Two Sorted Arrays  
+  
+🔹 2. Low-Level Design (LLD)  
+  
+1️⃣ Design an Inventory Management System.  
+  
+2️⃣ Design a Shopping Cart with Discount and Coupon Rules.  
+  
+3️⃣ Design a Vending Machine.  
+  
+4️⃣ Design a Library Management System.  
+  
+5️⃣ Design a Food Delivery Order State Machine.  
+  
+6️⃣ Design a Logging Framework.  
+  
+🔹 3. System Design  
+  
+1️⃣ Design an E-commerce Product Catalog and Search System.  
+  
+2️⃣ Design a Flash Sale or High-Demand Checkout System.  
+  
+3️⃣ Design an Order Tracking and Delivery System.  
+  
+4️⃣ Design a Product Recommendation System.  
+  
+5️⃣ Design a Wallet or Payments Ledger System.  
+  
+🔹 4. Database & SQL  
+  
+1️⃣ How would you design a database schema for an Order Management System?  
+  
+2️⃣ What is the difference between clustered and non-clustered indexes?  
+  
+3️⃣ How would you maintain inventory consistency during concurrent orders?  
+  
+4️⃣ Explain ACID properties with a real-world transaction example.  
+  
+🔹 5. Java Concurrency & JVM  
+  
+1️⃣ How would you prevent inventory overselling under concurrent requests?  
+  
+2️⃣ What is the difference between CompletableFuture and ExecutorService?  
+  
+3️⃣ How would you tune the JVM for a high-throughput checkout service?  
+  
+4️⃣ Explain the happens-before relationship in the Java Memory Model.  
+  
+🔹 6. Behavioral & Ownership Questions  
+  
+1️⃣ Describe a time you made a technical trade-off under a tight deadline during a high-traffic event.  
+  
+2️⃣ Tell me about a time you prioritized customer impact over a technically cleaner solution.  
+  
+3️⃣ Describe a production incident you owned from investigation to resolution.  
+  
+4️⃣ How do you prioritize work when multiple stakeholders have conflicting requirements?  
+  
+💡 Key Takeaway  
+  
+For experienced Java developers, interview preparation goes beyond solving coding problems.  
+  
+You need to understand how to write efficient code, design extensible systems, handle concurrency, maintain data consistency, and make sound engineering trade-offs.
+
+
+
+
+
+
+---
+
+
 Java Backend Developer
 Client -Flipkart (Third party payroll)
 1. Tell me about your project and your contribution in it

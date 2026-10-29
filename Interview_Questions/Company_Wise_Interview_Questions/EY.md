@@ -1,3 +1,50 @@
+
+🔥 EY Java Developer Interview Experience | 4+ Years of Experience | 20 LPA  
+  
+Preparing for Java Backend interviews? 🚀 Here are some challenging interview questions covering Core Java, Java 8, Spring Boot, Microservices, Kafka, SQL, and System Design.  
+  
+🔹 Core Java & Collections  
+  
+1. What happens when you modify a field used in hashCode() after inserting an object into a HashMap?  
+2. How would you choose the right thread-pool size for CPU-bound vs. I/O-bound tasks?  
+3. How do virtual threads differ from platform threads?  
+4. Why should HashMap keys be immutable?  
+5. How would you find the top K frequent elements when the dataset doesn’t fit into memory?  
+  
+🔹 Java 8+ & Coding  
+6. Find the second-highest distinct salary in each department using Java Streams.  
+7. How would you process millions of records without exhausting memory?  
+8. How would you use records, sealed classes, and pattern matching in modern Java?  
+9. How would you implement cursor-based pagination for a database containing 100 million records?  
+  
+🔹 Spring Boot & Hibernate  
+10. What happens when a singleton bean injects a prototype-scoped bean?  
+11. How would you troubleshoot a Spring Boot application that starts successfully but fails when a particular endpoint is called?  
+12. How would you compare optimistic locking using @Version with pessimistic locking?  
+13. How would you design OAuth 2.0/JWT security with token expiry, authorization scopes, and service-to-service authentication?  
+  
+🔹 Microservices & System Design  
+14. How would you identify and prevent a distributed monolith?  
+15. A payment succeeds, but inventory reservation fails. How would you implement the Saga pattern?  
+16. How would you prevent cascading failures across multiple microservices?  
+17. How would you implement distributed tracing and correlation IDs across Spring Boot services?  
+18. Design an API capable of handling 50,000 requests per second. Explain the architecture, bottlenecks, and scaling strategy.  
+  
+🔹 Kafka & Database  
+19. Consumer lag keeps increasing even though all Kafka consumers are running. How would you identify the bottleneck?  
+20. How would you handle poison messages, retry topics, dead-letter topics, and safe event replay?  
+21. How would you design a composite database index for filtering transactions by customer and date while supporting sorting?  
+  
+🔹 Production Scenarios  
+22. How would you handle an OutOfMemoryError in production?  
+23. How would you troubleshoot increasing API latency?  
+24. How would you design disaster recovery for a multi-region Java microservices platform?
+
+
+
+
+---
+
 EY Interview Experience for BNY_Melon client | Java | Senior Consultant👇
 
 1. Spring Boot Features: What are the main features of Spring Boot that you use in your day-to-day work? 
