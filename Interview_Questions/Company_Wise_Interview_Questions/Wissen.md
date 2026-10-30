@@ -1,3 +1,31 @@
+
+🚀 Wissen Interview Experience | Java Backend | 13 YOE  
+Sharing some questions from a recent Wissen interview for a 13 YOE Java Backend role.  
+The interview focused heavily on Java, Kafka, Microservices, Concurrency, Transactions, Production Troubleshooting & System Design.  
+🔥 Key Questions:  
+1️⃣ How would you design an immutable class in Java?  
+2️⃣ Implement a custom Iterator and a custom Exception.  
+3️⃣ How do you decide the number of Kafka partitions?  
+4️⃣ Design a system that guarantees per-user event ordering while maintaining high throughput.  
+5️⃣ Using Java Streams, process transaction data and find the Top 3 clients by transaction amount.  
+6️⃣ Analyze a multithreading scenario involving synchronized instance vs static methods.  
+7️⃣ Production API latency increased from 200ms → 5 seconds. How would you troubleshoot it?  
+8️⃣ How would you handle Kafka poison messages, retries, DLT/DLQ and offsets?  
+9️⃣ Explain Saga, Transactional Outbox, CDC and Distributed Locking.  
+🔟 How would you design Kafka-based credit/debit processing with ordering and high throughput?  
+1️⃣1️⃣ Explain HashMap vs ConcurrentHashMap vs LinkedHashMap.  
+1️⃣2️⃣ Design a Distributed Log Aggregation System.  
+🎯 Key Areas  
+☕ Java | 🚀 Kafka | 🔄 Microservices | 🧵 Concurrency | 🗄️ Database | 🏗️ System Design | ⚡ Production Support  
+📌 Senior-level interviews test how you design, troubleshoot, and scale systems—not just Java syntax.  
+[](https://www.linkedin.com/search/results/all/?keywords=%23java&origin=HASH_TAG_FROM_FEED)
+
+
+
+
+
+---
+
 Interview Questions at Wissen: Virtual
 
 1. How will you make class immutable? How many ways are there to make it immutable? 
