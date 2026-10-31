@@ -1,3 +1,66 @@
+🚀 Mastercard Senior Java Developer Interview Experience | Java + React + Spring Boot | Full Stack  
+  
+Preparing for a Senior Java Developer role? Here’s an interesting interview experience shared by a developer who interviewed with Mastercard. The discussion covered backend development, React, security, CI/CD, and real-world engineering scenarios.  
+  
+📌 Key Interview Topics  
+  
+🔹 1. Frontend – React  
+  
+* Full-stack architecture walkthrough (Frontend to Backend)  
+* Explain Redux to someone new.  
+* Authentication vs Authorization in React  
+* Caching in React  
+* How would you fix a sluggish UI when paginated API calls have high latency?  
+  
+🔹 2. Backend – Java & Spring Boot  
+  
+* Building REST APIs and commonly used Spring Boot libraries  
+* Spring Data JPA vs Spring Data JDBC – when would JDBC be a better choice?  
+* Spring Bean lifecycle  
+* Spring vs Spring Boot  
+* Threads vs Processes  
+* Parallel processing in Java  
+  
+🔹 3. Security & Microservices  
+  
+* Spring Security fundamentals  
+* How do you ensure payload integrity between microservices?  
+* TLS vs Mutual TLS (mTLS)  
+* Explain certificates and the TLS handshake process.  
+  
+🔹 4. Testing & CI/CD  
+  
+* Different types of testing in Java and frontend applications  
+* Performance testing to ensure new changes don’t degrade user experience  
+* CI/CD pipelines and testing during deployment  
+  
+🔹 5. Real-World Scenarios & Project Discussion  
+  
+* How do you collaborate with product teams to understand requirements?  
+* What was your biggest implementation challenge after PI planning?  
+* Explain a recent production issue: what broke, how did you respond, and how did you resolve it?  
+  
+💡 Key Takeaways  
+  
+Senior-level interviews are not just about theoretical knowledge. Interviewers want to understand:  
+  
+✅ How well you explain technical concepts.  
+  
+✅ Whether you can connect concepts to real project experience.  
+  
+✅ How you approach performance and security challenges.  
+  
+✅ Whether you understand the complete application flow, from frontend to backend.  
+  
+🔥 Preparation Tip: Don’t just prepare Java and Spring Boot. Be ready to discuss architecture, frontend integration, security, performance, testing, and production-level challenges.  
+  
+📌 Save this post for your next interview preparation and share it with fellow developers!  
+  
+Which area would you find most challenging: Java Backend, React, Security, or System Design? 👇
+
+
+
+---
 
 🚀 Mastercard DevOps Engineer Interview Experience | Real-World Production Scenarios  
   
