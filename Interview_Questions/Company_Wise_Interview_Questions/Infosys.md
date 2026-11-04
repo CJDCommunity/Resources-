@@ -1,3 +1,59 @@
+🚀 Infosys DSE Recruitment Experience | Online Assessment to Technical Interview  
+  
+Preparing for the Infosys Digital Specialist Engineer (DSE) role? Here’s a recruitment experience shared by a fellow aspirant, covering coding assessments, SQL, database design, and technical interviews. 👇  
+  
+📌 Interview Process & Topics Covered  
+  
+🔹 Round 1: Online Assessment  
+  
+The first round consisted of 3 coding problems, out of which 2 were successfully solved.  
+  
+Topics covered:  
+  
+* Greedy algorithms and sorting  
+* Dynamic Programming  
+* Optimization problems  
+  
+🔹 Round 2: Offline Assessment  
+  
+This round included 4 coding problems. One was fully solved, while two others passed public test cases but remained incomplete.  
+  
+Topics covered:  
+  
+* Prefix sums and cumulative sums  
+* Sliding Window technique  
+* Dynamic Programming  
+* Array optimization problems  
+  
+🔹 Round 3: Technical Interview  
+  
+1. Coding  
+  
+* Array partitioning  
+* Optimization techniques  
+* Greedy algorithms  
+* String manipulation  
+* Two coding problems with a 30-minute time limit  
+  
+2. SQL  
+  
+* Retrieving and comparing student records based on overall marks  
+* SQL aggregation  
+* Sorting and query logic  
+  
+3. Database Design  
+  
+* Design an ER diagram for an e-commerce application  
+* Entity relationships  
+* Product listings  
+* Customers, sellers, and purchases
+
+
+
+
+
+---
+
 🚀 Infosys Java Developer Interview Experience | 4+ YOE  
   
 Recently came across an interesting Infosys Java/Spring Boot/Microservices interview experience where the discussion went far beyond theoretical questions.  
