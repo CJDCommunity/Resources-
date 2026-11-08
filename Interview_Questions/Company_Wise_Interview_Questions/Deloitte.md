@@ -1,3 +1,84 @@
+🚀 Deloitte USI Java Full-Stack Interview Experience | Round 2 | 4+ YOE  
+  
+Think Java interviews are only about Core Java and Spring Boot? Think again! 👀  
+  
+This interview covered much more than theoretical concepts. The focus was on real-world engineering challenges, production debugging, system design, security, and performance optimization.  
+  
+Here are some of the key areas discussed:  
+  
+☕ Core Java & Concurrency  
+  
+* ConcurrentHashMap internals  
+* JVM Garbage Collection pauses  
+* Thread pool management and graceful shutdown  
+* Spring Bean lifecycle and circular dependencies  
+* Optimistic vs. pessimistic locking  
+  
+🌱 Spring Boot, Security & Hibernate  
+  
+* Debugging API latency  
+* @ConfigurationProperties and profiles  
+* N+1 problem and solutions  
+* CSRF and OWASP risks  
+* Filter vs. Interceptor  
+* JWT authentication and token management  
+* Authentication vs. authorization  
+  
+⚡ Microservices & System Design  
+  
+* Saga pattern: Order, Payment and Inventory  
+* Circuit Breaker and Bulkhead patterns  
+* Handling 10K RPS traffic with a 1K RPS downstream service  
+* Kafka duplicates, idempotency and ordering  
+* Exactly-once semantics  
+* Safely updating millions of database records  
+  
+🔍 Production Debugging & Performance  
+  
+* Handling JVM GC pauses  
+* Investigating HTTP 500 errors after deployment  
+* Improving legacy Spring Boot applications  
+* Code review and identifying performance bottlenecks  
+* Optimizing slow database queries  
+  
+🗄️ SQL & Databases  
+  
+* Top 5 customers by revenue per region  
+* Large-table query optimization  
+* Updating millions of rows with minimal production impact  
+  
+⚛️ React & Frontend  
+  
+* React re-renders and performance optimization  
+* Context API vs. Redux vs. TanStack Query  
+* Memory leaks and race conditions  
+* Debugging stale data and blank screens  
+  
+🤖 AI Tools & Developer Productivity  
+  
+* Using AI tools to explore large Spring Boot codebases  
+* Finding APIs efficiently  
+* Understanding codebase search using fewer tokens  
+* grep and other code-search techniques  
+  
+💻 Coding  
+  
+* Maximum number of non-overlapping intervals  
+  
+🎯 My Key Takeaway  
+  
+For experienced developers, interviews are increasingly focused on how you approach real production problems.  
+  
+Knowing concepts is important, but understanding trade-offs, debugging issues, designing resilient systems, and explaining your technical decisions can make a real difference.  
+  
+📌 Save this post for your next Java interview preparation and share it with someone preparing for a switch.
+
+
+
+
+
+
+---
 
 🚀 Deloitte Interview Experience | Java Backend / Software Engineer | 4 Rounds  
   
