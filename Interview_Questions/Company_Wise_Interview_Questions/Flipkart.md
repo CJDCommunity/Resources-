@@ -1,3 +1,79 @@
+🚀 Flipkart SDE-2 Interview Experience | 5 Rounds | 2.5 YOE | ~35 LPA CTC  
+  
+Think solving DSA problems is enough to crack an SDE-2 interview?  
+  
+Not always!  
+  
+Here’s a candidate-reported Flipkart interview experience from January 2026, covering five rounds and multiple engineering skills. 👇  
+  
+📌 ROUND 1 — Online Assessment (2 Hours)  
+  
+Two coding problems:  
+  
+* Graph Traversal (Medium)  
+* Trie Problem (Medium)  
+  
+📌 ROUND 2 — Machine Coding (90 Minutes)  
+  
+Design and implement a Buy Now Pay Later (BNPL) System.  
+  
+Requirements included:  
+  
+* Product inventory management  
+* User registration with credit limits  
+* PREPAID and BNPL purchases  
+* Partial and full due payments  
+* Pending and delayed payment tracking  
+* Order history and available credit  
+* Blacklisting users with 3+ defaults  
+  
+Constraint: In-memory implementation. No database allowed.  
+  
+📌 ROUND 3 — LLD + Code Review (1.5 Hours)  
+  
+* Explain class design and architecture  
+* Demonstrate design patterns  
+* Handle edge cases and exceptions  
+* Implement new requirements live  
+* Draw UML class diagrams  
+* Defend technical decisions  
+  
+📌 ROUND 4 — DSA  
+  
+Two problems:  
+  
+* House Robber IV (LeetCode 2560)  
+* Binary Tree Zigzag Traversal (LeetCode 103)  
+  
+📌 ROUND 5 — System Design + Hiring Manager (1.5 Hours)  
+  
+* Functional and non-functional requirements  
+* Database schema and relationships  
+* API design  
+* Microservices architecture  
+* Circuit Breaker, Saga and CQRS  
+* Event-driven systems  
+* Project deep dive  
+* Ownership and behavioral questions  
+  
+💡 What does this interview experience teach us?  
+  
+Different rounds evaluate different engineering skills:  
+  
+✅ DSA gets you shortlisted.  
+✅ Machine Coding proves you can build.  
+✅ LLD proves you can structure code.  
+✅ HLD proves you can design scalable systems.  
+✅ Managerial rounds evaluate ownership and decision-making.  
+  
+The bigger takeaway: For SDE-2 roles, don’t prepare only for coding rounds. Practice building complete applications, writing maintainable code, handling edge cases, and explaining your design decisions.
+
+
+
+
+---
+
+
 🚀 Flipkart SDE-2 Interview Preparation | Java Developers  
   
 Preparing for an SDE-2 role at Flipkart? Don’t focus only on DSA. Product-based companies also evaluate your Low-Level Design (LLD), System Design, Java concurrency, database fundamentals, and real-world problem-solving skills.  

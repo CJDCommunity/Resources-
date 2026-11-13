@@ -1,3 +1,85 @@
+🚀 Infosys Java Backend Developer Interview Experience | 4+ YOE | Technical Round 1  
+  
+Preparing for a Java Backend Developer interview at Infosys?  
+  
+Here are 15 interview questions shared from a recent technical interview experience.  
+  
+🏢 Company: Infosys  
+💼 Role: Java Backend Developer  
+👨‍💻 Experience: 4+ Years  
+🎯 Round: Virtual Technical Interview  
+🛠️ Tech Stack: Java 8, Spring Boot, Microservices, REST APIs, Spring Data JPA, Docker, Jenkins  
+  
+📌 1️⃣ Introduction & Project Experience  
+  
+1. Tell me about yourself and your technical experience.  
+2. What is your overall IT experience?  
+3. Are you primarily involved in development or production support?  
+4. Which Java versions are you currently using?  
+5. Explain your current project and its business workflow.  
+  
+🌱 2️⃣ Spring Boot & Microservices  
+  
+6. Explain the complete flow of a REST API you developed, from request to response.  
+7. How do microservices communicate using OpenFeign?  
+8. Which databases have you worked with, and how do you integrate them using Spring Data JPA and Hibernate?  
+  
+☕ 3️⃣ Java 8 & Functional Programming  
+  
+9. What is a Lambda Expression in Java 8?  
+10. What is a Functional Interface? Can it contain default and static methods?  
+  
+💻 4️⃣ Java Coding Questions  
+  
+11. Write a Lambda Expression to add two integers using a Functional Interface.  
+12. Merge two sorted arrays.  
+  
+```
+Input:  
+nums1 = [1,2,3,0,0,0], m = 3  
+nums2 = [2,5,6], n = 3  
+  
+Expected Output: [1,2,2,3,5,6]  
+```  
+1. Given a Map containing fruit names and prices, use Java 8 Streams to separate fruits priced above 150 from those priced below 150.  
+  
+```
+Input:  
+  
+* Apple = 100  
+* Orange = 170  
+* Mango = 250  
+* Watermelon = 30  
+* Banana = 50  
+  
+Expected Output:  
+  
+Above 150: Orange, Mango  
+Below 150: Apple, Watermelon, Banana  
+```  
+🔧 5️⃣ Git, Docker & CI/CD  
+  
+14. Explain your Git checkout, check-in, branching, and commit process.  
+15. Explain how Jenkins and Docker are used in your application’s CI/CD pipeline.  
+  
+💡 Key Takeaway  
+  
+For Java developers with 4+ years of experience, interview preparation should go beyond theoretical definitions.  
+  
+Focus on:  
+✅ Explaining your project architecture and business flow  
+✅ Understanding how Spring Boot APIs work internally  
+✅ Practicing Java 8 Streams and coding problems  
+✅ Understanding microservice communication  
+✅ Explaining your Git and CI/CD workflow with real examples
+
+
+
+
+
+
+---
+
 🚀 Infosys DSE Recruitment Experience | Online Assessment to Technical Interview  
   
 Preparing for the Infosys Digital Specialist Engineer (DSE) role? Here’s a recruitment experience shared by a fellow aspirant, covering coding assessments, SQL, database design, and technical interviews. 👇  
